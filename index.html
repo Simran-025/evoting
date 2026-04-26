@@ -4,18 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>e-VBS Portal | Election Commission of India</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;600;700&family=Noto+Sans:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;600&display=swap" rel="stylesheet">
 <style>
-/* ═══════════════════════ RESET & ROOT ═══════════════════════ */
-:root {
-  --navy:#1a3a6b;    --navy2:#0f2548;   --navy3:#24519e;
-  --saffron:#FF9933; --saf2:#e07000;
-  --green:#138808;   --green2:#0a6600;
-  --red:#c0392b;     --gold:#c9a227;
-  --white:#fff;      --off:#f3f5f8;     --cream:#fdf9f0;
-  --light:#edf1f8;   --border:#cad5e8;  --border2:#b0c0da;
-  --text:#1a1a2e;    --text2:#374060;   --muted:#6b7a9a;
+:root{
+  --navy:#1a3a6b;--navy2:#0f2548;--navy3:#24519e;
+  --saffron:#FF9933;--saf2:#e07000;
+  --green:#138808;--green2:#0a6600;
+  --red:#c0392b;--gold:#c9a227;
+  --white:#fff;--off:#f3f5f8;--cream:#fdf9f0;--light:#edf1f8;
+  --border:#cad5e8;--border2:#b0c0da;
+  --text:#1a1a2e;--text2:#374060;--muted:#6b7a9a;
   --fs:'Noto Serif',Georgia,serif;
   --fn:'Noto Sans',sans-serif;
   --fd:'Noto Sans Devanagari',sans-serif;
@@ -26,81 +24,76 @@
 html{font-size:15px;scroll-behavior:smooth;}
 body{background:var(--off);color:var(--text);font-family:var(--fn);line-height:1.65;min-height:100vh;}
 a{color:var(--navy3);text-decoration:none;}
-a:hover{text-decoration:underline;}
 button,input,select,textarea{font-family:inherit;}
 button{cursor:pointer;}
-img{max-width:100%;}
 
-/* ═══════════════════════ PAGE SYSTEM ═══════════════════════ */
+/* PAGE SWITCHING */
 .page{display:none;}
 .page.active{display:block;}
 
-/* ═══════════════════════ UTILITY BAR ═══════════════════════ */
+/* UTILITY BAR */
 .util-bar{background:var(--navy2);padding:5px 0;border-bottom:2px solid var(--saffron);}
 .util-row{max-width:1240px;margin:0 auto;padding:0 18px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:5px;}
-.util-left{display:flex;gap:14px;align-items:center;}
-.util-left a{color:rgba(255,255,255,.68);font-size:.69rem;}
+.util-left{display:flex;gap:14px;}
+.util-left a{color:rgba(255,255,255,.68);font-size:.69rem;text-decoration:none;}
 .util-left a:hover{color:#fff;}
 .util-right{display:flex;gap:8px;align-items:center;}
-.lang-btn{background:transparent;border:1px solid rgba(255,255,255,.28);color:rgba(255,255,255,.75);padding:2px 9px;font-size:.67rem;cursor:pointer;transition:.15s;}
-.lang-btn.active{background:var(--saffron);border-color:var(--saffron);color:#fff;}
-.fsize-btns{display:flex;gap:2px;}
-.fsize-btns button{background:transparent;border:1px solid rgba(255,255,255,.22);color:rgba(255,255,255,.65);width:22px;height:20px;font-size:.68rem;cursor:pointer;}
+.lang-btn{background:transparent;border:1px solid rgba(255,255,255,.28);color:rgba(255,255,255,.75);padding:2px 9px;font-size:.67rem;cursor:pointer;}
+.lang-btn.on{background:var(--saffron);border-color:var(--saffron);color:#fff;}
 
-/* ═══════════════════════ HEADER ═══════════════════════ */
-.site-header{background:var(--white);border-bottom:4px solid var(--navy);box-shadow:var(--sh2);}
-.hdr-inner{max-width:1240px;margin:0 auto;padding:13px 18px;display:flex;align-items:center;gap:18px;flex-wrap:wrap;}
+/* HEADER */
+.site-hdr{background:var(--white);border-bottom:4px solid var(--navy);box-shadow:var(--sh2);}
+.hdr-row{max-width:1240px;margin:0 auto;padding:13px 18px;display:flex;align-items:center;gap:18px;flex-wrap:wrap;}
 .brand{display:flex;align-items:center;gap:13px;flex:1;min-width:260px;}
 .emblem{width:68px;height:68px;flex-shrink:0;}
 .brand-hi{font-family:var(--fd);font-size:.98rem;font-weight:600;color:var(--navy2);display:block;}
 .brand-en{font-family:var(--fs);font-size:1.1rem;font-weight:700;color:var(--navy);display:block;}
 .brand-sub{font-size:.64rem;color:var(--muted);letter-spacing:.8px;text-transform:uppercase;}
-.hdr-center{flex:1.2;text-align:center;}
-.hdr-center h1{font-family:var(--fs);font-size:1.12rem;font-weight:700;color:var(--navy);line-height:1.25;}
-.hdr-center h1 em{color:var(--saf2);font-style:normal;}
-.hdr-center p{font-size:.64rem;color:var(--muted);margin-top:3px;letter-spacing:.5px;}
+.hdr-mid{flex:1.2;text-align:center;}
+.hdr-mid h1{font-family:var(--fs);font-size:1.12rem;font-weight:700;color:var(--navy);}
+.hdr-mid h1 em{color:var(--saf2);font-style:normal;}
+.hdr-mid p{font-size:.64rem;color:var(--muted);margin-top:3px;letter-spacing:.5px;}
 .hdr-right{text-align:right;flex-shrink:0;}
 .helpline{font-size:.69rem;color:var(--muted);line-height:1.85;}
 .helpline strong{color:var(--navy);}
-.hdr-badges{display:flex;gap:5px;justify-content:flex-end;margin-top:5px;flex-wrap:wrap;}
-.badge{font-size:.58rem;padding:2px 7px;font-weight:600;letter-spacing:.4px;border-radius:1px;}
+.badges{display:flex;gap:5px;justify-content:flex-end;margin-top:5px;flex-wrap:wrap;}
+.badge{font-size:.58rem;padding:2px 7px;font-weight:600;border-radius:1px;}
 .b-sec{background:#e6f4ec;color:var(--green2);border:1px solid #b8dfc0;}
 .b-live{background:#fff3e0;color:var(--saf2);border:1px solid #ffd699;}
 .b-nic{background:#e8edf8;color:var(--navy);border:1px solid var(--border);}
 .hdr-user{display:flex;align-items:center;gap:8px;margin-top:7px;justify-content:flex-end;}
-.hdr-user-name{font-size:.79rem;color:var(--navy2);font-weight:600;}
-.logout-btn{background:var(--navy);color:#fff;border:none;padding:5px 13px;font-size:.71rem;font-weight:600;border-radius:1px;cursor:pointer;transition:.15s;}
+.hdr-uname{font-size:.79rem;color:var(--navy2);font-weight:600;}
+.logout-btn{background:var(--navy);color:#fff;border:none;padding:5px 13px;font-size:.71rem;font-weight:600;border-radius:1px;}
 .logout-btn:hover{background:var(--navy2);}
 
 /* TRICOLOUR */
 .tri{height:5px;background:linear-gradient(to right,var(--saffron) 33.3%,var(--white) 33.3%,var(--white) 66.6%,var(--green) 66.6%);}
 
-/* ═══════════════════════ MAIN NAV ═══════════════════════ */
+/* MAIN NAV */
 .main-nav{background:var(--navy);position:sticky;top:0;z-index:200;box-shadow:0 2px 7px rgba(0,0,0,.28);}
 .nav-row{max-width:1240px;margin:0 auto;padding:0 18px;display:flex;align-items:stretch;flex-wrap:wrap;}
 .nav-btn{display:flex;align-items:center;gap:5px;color:rgba(255,255,255,.86);font-size:.79rem;font-weight:500;padding:10px 14px;border:none;background:none;border-right:1px solid rgba(255,255,255,.1);letter-spacing:.2px;transition:background .14s;cursor:pointer;white-space:nowrap;}
 .nav-btn:first-child{border-left:1px solid rgba(255,255,255,.1);}
 .nav-btn:hover{background:rgba(255,255,255,.1);color:#fff;}
-.nav-btn.active{background:var(--saffron);color:#fff;font-weight:600;}
+.nav-btn.on{background:var(--saffron);color:#fff;font-weight:600;}
 .nav-clock{margin-left:auto;display:flex;align-items:center;padding:0 14px;border-left:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.55);font-size:.68rem;white-space:nowrap;}
 
 /* MARQUEE */
-.marquee-bar{background:var(--light);border-bottom:1px solid var(--border);padding:6px 0;overflow:hidden;display:flex;align-items:center;}
-.mq-label{background:var(--navy);color:#fff;font-size:.66rem;font-weight:600;padding:0 12px;white-space:nowrap;display:flex;align-items:center;height:26px;letter-spacing:1px;flex-shrink:0;margin-right:10px;}
-.mq-text{font-size:.7rem;color:var(--text2);white-space:nowrap;animation:mq 44s linear infinite;}
+.mq-bar{background:var(--light);border-bottom:1px solid var(--border);padding:6px 0;overflow:hidden;display:flex;align-items:center;}
+.mq-tag{background:var(--navy);color:#fff;font-size:.66rem;font-weight:600;padding:0 12px;white-space:nowrap;display:flex;align-items:center;height:26px;letter-spacing:1px;flex-shrink:0;margin-right:10px;}
+.mq-txt{font-size:.7rem;color:var(--text2);white-space:nowrap;animation:mq 44s linear infinite;}
 @keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
 /* BREADCRUMB */
-.breadcrumb{background:var(--cream);border-bottom:1px solid var(--border);padding:6px 0;}
+.bc-bar{background:var(--cream);border-bottom:1px solid var(--border);padding:6px 0;}
 .bc-row{max-width:1240px;margin:0 auto;padding:0 18px;font-size:.69rem;color:var(--muted);display:flex;align-items:center;gap:5px;}
 .bc-row a{color:var(--navy3);}
 
-/* ═══════════════════════ LAYOUT ═══════════════════════ */
+/* LAYOUT */
 .wrap{max-width:1240px;margin:0 auto;padding:16px 18px;}
 .two-col{display:grid;grid-template-columns:1fr 290px;gap:16px;align-items:start;}
-.one-col{grid-template-columns:1fr;}
 
-/* ═══════════════════════ CARDS ═══════════════════════ */
+/* CARDS */
 .card{background:var(--white);border:1px solid var(--border);box-shadow:var(--sh);margin-bottom:14px;}
 .card:last-child{margin-bottom:0;}
 .card-hdr{background:var(--navy);color:#fff;padding:9px 15px;display:flex;align-items:center;gap:9px;border-bottom:2px solid var(--saffron);}
@@ -108,9 +101,9 @@ img{max-width:100%;}
 .card-hdr .hi{font-family:var(--fd);font-weight:400;font-size:.72rem;opacity:.78;display:block;margin-top:1px;}
 .card-body{padding:15px;}
 
-/* ═══════════════════════ FORMS ═══════════════════════ */
+/* FORMS */
 .fsec{margin-bottom:16px;}
-.fsec-title{font-family:var(--fs);font-size:.84rem;font-weight:700;color:var(--navy);border-bottom:2px solid var(--saffron);padding-bottom:5px;margin-bottom:11px;display:flex;align-items:center;gap:7px;}
+.fsec-ttl{font-family:var(--fs);font-size:.84rem;font-weight:700;color:var(--navy);border-bottom:2px solid var(--saffron);padding-bottom:5px;margin-bottom:11px;display:flex;align-items:center;gap:7px;}
 .snum{background:var(--navy);color:#fff;width:19px;height:19px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.67rem;font-weight:700;flex-shrink:0;}
 .f2{display:grid;grid-template-columns:1fr 1fr;gap:11px;}
 .f3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:11px;}
@@ -125,11 +118,11 @@ img{max-width:100%;}
 .hint{font-size:.64rem;color:var(--muted);margin-top:2px;}
 .otp-row{display:flex;gap:7px;}
 .otp-row .inp{flex:1;letter-spacing:4px;text-align:center;font-size:.9rem;}
-.otp-send-btn{background:var(--navy3);color:#fff;border:none;padding:0 14px;font-size:.71rem;font-weight:600;white-space:nowrap;border-radius:2px;transition:.14s;cursor:pointer;}
-.otp-send-btn:hover{background:var(--navy2);}
-.otp-send-btn:disabled{background:var(--muted);cursor:not-allowed;}
+.otp-btn{background:var(--navy3);color:#fff;border:none;padding:0 14px;font-size:.71rem;font-weight:600;white-space:nowrap;border-radius:2px;cursor:pointer;}
+.otp-btn:hover{background:var(--navy2);}
+.otp-btn:disabled{background:var(--muted);cursor:not-allowed;}
 
-/* ═══════════════════════ BUTTONS ═══════════════════════ */
+/* BUTTONS */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;border:none;padding:9px 20px;font-size:.84rem;font-weight:700;border-radius:2px;transition:all .14s;cursor:pointer;}
 .btn:disabled{opacity:.5;cursor:not-allowed;}
 .btn-navy{background:var(--navy);color:#fff;}
@@ -139,20 +132,20 @@ img{max-width:100%;}
 .spin{display:inline-block;width:14px;height:14px;border:2px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:sp .7s linear infinite;}
 @keyframes sp{to{transform:rotate(360deg)}}
 
-/* ═══════════════════════ ALERTS ═══════════════════════ */
-.alert{padding:9px 13px;font-size:.77rem;margin-bottom:11px;display:flex;align-items:flex-start;gap:8px;border-radius:1px;}
+/* ALERTS */
+.alert{padding:10px 13px;font-size:.78rem;margin-bottom:12px;display:flex;align-items:flex-start;gap:8px;border-radius:2px;line-height:1.5;}
 .al-err{background:#fde8e8;border:1px solid #f5b4b4;color:var(--red);}
 .al-ok{background:#e6f4ec;border:1px solid #b4dfc0;color:var(--green2);}
 .al-info{background:#e8edf8;border:1px solid var(--border);color:var(--navy2);}
 .al-warn{background:#fff3e0;border:1px solid #ffd699;color:var(--saf2);}
 
-/* ═══════════════════════ STATS ═══════════════════════ */
+/* STATS */
 .stats-g{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);}
 .stat-c{background:var(--white);padding:13px 10px;text-align:center;}
 .stat-n{font-family:var(--fs);font-size:1.5rem;font-weight:700;color:var(--navy);display:block;line-height:1;}
 .stat-l{font-size:.61rem;color:var(--muted);text-transform:uppercase;letter-spacing:.8px;margin-top:3px;display:block;}
 
-/* ═══════════════════════ PROCESS STEPS ═══════════════════════ */
+/* HOW IT WORKS */
 .step{display:grid;grid-template-columns:34px 1fr;gap:12px;padding:12px 0;border-bottom:1px solid var(--border);align-items:flex-start;}
 .step:last-child{border-bottom:none;padding-bottom:0;}
 .step-circle{width:32px;height:32px;border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--fs);font-size:.88rem;font-weight:700;border:2px solid var(--navy3);margin-top:2px;flex-shrink:0;}
@@ -161,7 +154,7 @@ img{max-width:100%;}
 .chips{margin-top:4px;display:flex;flex-wrap:wrap;gap:3px;}
 .chip{font-size:.59rem;padding:2px 6px;background:var(--light);border:1px solid var(--border);color:var(--navy3);border-radius:2px;}
 
-/* ═══════════════════════ CANDIDATES ═══════════════════════ */
+/* CANDIDATES */
 .cand-list{display:flex;flex-direction:column;gap:7px;}
 .cand-item{display:flex;align-items:center;gap:11px;padding:10px 12px;border:2px solid var(--border);cursor:pointer;transition:border-color .14s,background .14s;-webkit-user-select:none;user-select:none;}
 .cand-item:hover{border-color:var(--navy3);background:var(--light);}
@@ -174,12 +167,12 @@ img{max-width:100%;}
 .cand-meta{font-size:.63rem;color:var(--muted);margin-top:2px;}
 .nota-item{border-style:dashed;}
 
-/* NULLIFIER BOX */
+/* NULLIFIER */
 .null-box{background:var(--light);border:1px solid var(--border);border-left:3px solid var(--navy);padding:9px 12px;margin-top:8px;display:none;}
 .null-box.show{display:block;}
 .null-top{font-size:.63rem;text-transform:uppercase;letter-spacing:1px;color:var(--muted);font-weight:600;margin-bottom:4px;}
 .null-val{font-family:monospace;font-size:.7rem;color:var(--navy2);word-break:break-all;line-height:1.55;}
-.null-note{font-size:.64rem;color:var(--green2);margin-top:4px;display:flex;align-items:flex-start;gap:4px;}
+.null-note{font-size:.64rem;color:var(--green2);margin-top:4px;}
 .vstrip{background:#e6f4ec;border:1px solid #b4dfc0;padding:7px 12px;margin-top:8px;display:none;align-items:center;gap:7px;}
 .vstrip.show{display:flex;}
 .vstrip span{font-size:.73rem;color:var(--green2);font-weight:600;}
@@ -187,7 +180,7 @@ img{max-width:100%;}
 .decl label{display:flex;gap:9px;align-items:flex-start;cursor:pointer;font-size:.74rem;color:var(--text2);line-height:1.6;}
 .decl input{margin-top:3px;flex-shrink:0;accent-color:var(--navy);}
 
-/* ═══════════════════════ RESULTS ═══════════════════════ */
+/* RESULTS */
 .results-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px;}
 .rc{background:var(--white);border:1px solid var(--border);box-shadow:var(--sh);}
 .rc-hdr{background:var(--navy);color:#fff;padding:8px 13px;font-family:var(--fs);font-size:.8rem;font-weight:700;}
@@ -208,14 +201,14 @@ img{max-width:100%;}
 .overall-card{background:var(--white);border:2px solid var(--navy);box-shadow:var(--sh2);margin-bottom:16px;}
 .oc-hdr{background:var(--navy);color:#fff;padding:10px 15px;font-family:var(--fs);font-size:.9rem;font-weight:700;}
 
-/* ═══════════════════════ BLOCKCHAIN ═══════════════════════ */
+/* BLOCKCHAIN */
 .chain-scroll{overflow-x:auto;padding:14px;background:var(--off);border-top:1px solid var(--border);}
 .chain-row{display:flex;align-items:center;min-width:max-content;}
 .cblk{background:var(--white);border:1px solid var(--border2);border-top:3px solid var(--navy);padding:10px;min-width:130px;font-size:.64rem;box-shadow:var(--sh);flex-shrink:0;}
 .cblk.genesis{border-top-color:var(--gold);}
-.cblk.newblk{border-top-color:var(--green2);animation:newb .8s ease;}
+.cblk.newblk{border-top-color:var(--green2);animation:nb .8s ease;}
 .cblk.pending{border-top-color:var(--saffron);opacity:.7;}
-@keyframes newb{from{background:#e6f4ec;}to{background:var(--white);}}
+@keyframes nb{from{background:#e6f4ec;}to{background:var(--white);}}
 .cb-l{font-weight:700;color:var(--navy);font-family:var(--fs);font-size:.69rem;}
 .cb-n{font-size:.58rem;color:var(--muted);}
 .cb-h{font-family:monospace;font-size:.57rem;color:var(--text2);margin-top:2px;word-break:break-all;}
@@ -231,7 +224,7 @@ img{max-width:100%;}
 .cl.gld .cv,.cl.gld .kw,.cl.gld .ty{color:var(--gold);}
 .gld-tag{margin-left:auto;font-size:.55rem;color:var(--gold);border:1px solid rgba(255,215,0,.38);padding:0 5px;white-space:nowrap;}
 
-/* SECURITY */
+/* SECURITY TABLE */
 .sec-tbl{width:100%;border-collapse:collapse;font-size:.74rem;}
 .sec-tbl th{background:var(--light);border:1px solid var(--border);padding:7px 9px;text-align:left;font-weight:700;color:var(--navy2);font-family:var(--fs);font-size:.72rem;}
 .sec-tbl td{border:1px solid var(--border);padding:7px 9px;color:var(--text2);}
@@ -240,7 +233,7 @@ img{max-width:100%;}
 .sb-ok{background:#e6f4ec;color:var(--green2);}
 .sb-no{background:#fdeaea;color:var(--red);}
 
-/* ═══════════════════════ SIDEBAR ═══════════════════════ */
+/* SIDEBAR */
 .sidebar{display:flex;flex-direction:column;gap:12px;}
 .sc{background:var(--white);border:1px solid var(--border);box-shadow:var(--sh);}
 .sc-hdr{background:var(--light);border-bottom:2px solid var(--navy);padding:7px 13px;}
@@ -275,7 +268,7 @@ img{max-width:100%;}
 .nping.slow{color:var(--saf2);}
 .nping.dead{color:var(--red);}
 
-/* ═══════════════════════ RECEIPT ═══════════════════════ */
+/* RECEIPT */
 .receipt-wrap{border:2px solid var(--navy);margin-top:14px;}
 .receipt-hdr{background:var(--navy);color:#fff;padding:9px 14px;display:flex;align-items:center;gap:9px;}
 .receipt-hdr h3{font-family:var(--fs);font-size:.9rem;}
@@ -284,14 +277,14 @@ img{max-width:100%;}
 .receipt-tbl td:first-child{font-weight:600;color:var(--text2);background:var(--light);width:36%;font-size:.71rem;}
 .receipt-tbl td:last-child{font-family:monospace;font-size:.69rem;word-break:break-all;}
 
-/* ═══════════════════════ PROFILE ═══════════════════════ */
+/* PROFILE */
 .profile-grid{display:grid;grid-template-columns:1fr 1fr;gap:11px;}
 .pi-l{font-size:.65rem;text-transform:uppercase;letter-spacing:.8px;color:var(--muted);font-weight:600;display:block;}
 .pi-v{font-size:.86rem;color:var(--text);font-weight:600;margin-top:1px;}
 .voted-banner{background:#e6f4ec;border:1px solid #b4dfc0;padding:11px 14px;display:flex;align-items:center;gap:11px;margin-bottom:13px;}
 .not-voted-banner{background:#fff3e0;border:1px solid #ffd699;padding:11px 14px;display:flex;align-items:center;gap:11px;margin-bottom:13px;}
 
-/* ═══════════════════════ VOTE MODAL ═══════════════════════ */
+/* VOTE MODAL */
 .modal-bg{display:none;position:fixed;inset:0;z-index:900;background:rgba(0,0,0,.56);align-items:center;justify-content:center;}
 .modal-bg.show{display:flex;}
 .modal{background:var(--white);width:510px;max-width:96vw;border-top:4px solid var(--navy);box-shadow:0 8px 36px rgba(0,0,0,.28);}
@@ -315,25 +308,24 @@ img{max-width:100%;}
 .modal-foot{padding:11px 15px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;}
 .modal-fnote{font-size:.63rem;color:var(--muted);}
 
-/* ═══════════════════════ AUTH PAGE ═══════════════════════ */
-.auth-page{min-height:100vh;background:linear-gradient(135deg,var(--navy2) 0%,var(--navy) 55%,var(--navy3) 100%);display:flex;flex-direction:column;}
-.auth-body-wrap{flex:1;display:flex;align-items:center;justify-content:center;padding:28px 16px;}
-.auth-box{background:var(--white);width:100%;max-width:640px;border-top:5px solid var(--saffron);box-shadow:0 8px 36px rgba(0,0,0,.3);}
+/* AUTH PAGE */
+.auth-wrap{min-height:100vh;background:linear-gradient(135deg,var(--navy2) 0%,var(--navy) 55%,var(--navy3) 100%);display:flex;flex-direction:column;}
+.auth-body{flex:1;display:flex;align-items:center;justify-content:center;padding:28px 16px;}
+.auth-box{background:var(--white);width:100%;max-width:700px;border-top:5px solid var(--saffron);box-shadow:0 8px 36px rgba(0,0,0,.3);}
 
-/* AUTH TABS — the key piece */
+/* AUTH TABS — critical */
 .auth-tabs{display:flex;border-bottom:3px solid var(--border);}
-.auth-tab{flex:1;padding:13px 10px;text-align:center;font-size:.84rem;font-weight:600;color:var(--muted);cursor:pointer;border:none;background:none;transition:color .18s,border-color .18s;border-bottom:3px solid transparent;margin-bottom:-3px;font-family:var(--fn);}
+.auth-tab{flex:1;padding:14px 10px;text-align:center;font-size:.84rem;font-weight:600;color:var(--muted);cursor:pointer;border:none;background:none;transition:color .18s;border-bottom:3px solid transparent;margin-bottom:-3px;font-family:var(--fn);}
 .auth-tab:hover{color:var(--navy3);background:var(--light);}
 .auth-tab.active{color:var(--navy);border-bottom:3px solid var(--navy);background:var(--white);font-weight:700;}
-
 .auth-panel{display:none;}
 .auth-panel.active{display:block;}
 
-.auth-box-hdr{background:var(--light);border-bottom:1px solid var(--border);padding:14px 20px;text-align:center;}
-.auth-box-hdr h2{font-family:var(--fs);font-size:1.05rem;color:var(--navy);font-weight:700;}
-.auth-box-hdr p{font-size:.72rem;color:var(--muted);margin-top:3px;}
-.auth-box-inner{padding:22px 20px;}
-.auth-box-foot{border-top:1px solid var(--border);padding:10px 20px;text-align:center;font-size:.67rem;color:var(--muted);}
+.auth-phdr{background:var(--light);border-bottom:1px solid var(--border);padding:14px 20px;text-align:center;}
+.auth-phdr h2{font-family:var(--fs);font-size:1.05rem;color:var(--navy);font-weight:700;}
+.auth-phdr p{font-size:.72rem;color:var(--muted);margin-top:3px;}
+.auth-pinner{padding:22px 20px;}
+.auth-pfoot{border-top:1px solid var(--border);padding:10px 20px;text-align:center;font-size:.67rem;color:var(--muted);}
 
 /* FOOTER */
 .foot-tri{height:4px;background:linear-gradient(to right,var(--saffron) 33.3%,var(--white) 33.3%,var(--white) 66.6%,var(--green) 66.6%);}
@@ -345,10 +337,10 @@ img{max-width:100%;}
 .foot-col a:hover{color:#fff;}
 .foot-bottom{border-top:1px solid rgba(255,255,255,.11);background:rgba(0,0,0,.2);padding:10px 18px;font-size:.64rem;color:rgba(255,255,255,.43);display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px;}
 
-/* ═══════════════════════ RESPONSIVE ═══════════════════════ */
+/* RESPONSIVE */
 @media(max-width:900px){
   .two-col{grid-template-columns:1fr;}
-  .hdr-inner{flex-direction:column;align-items:flex-start;}
+  .hdr-row{flex-direction:column;align-items:flex-start;}
   .hdr-right{display:none;}
   .stats-g{grid-template-columns:1fr 1fr;}
   .f2,.f3{grid-template-columns:1fr;}
@@ -357,19 +349,16 @@ img{max-width:100%;}
   .profile-grid{grid-template-columns:1fr;}
   .auth-tab{font-size:.76rem;padding:11px 6px;}
 }
-
-/* national emblem used in both pages */
-.nat-emblem{width:68px;height:68px;flex-shrink:0;}
 </style>
 </head>
 <body>
 
-<!-- ╔══════════════════════════════════════╗
-     ║           AUTH PAGE                  ║
-     ╚══════════════════════════════════════╝ -->
-<div id="authPage" class="page active auth-page">
+<!-- ═══════════════════════════════════════
+     AUTH PAGE  (Login / Register)
+     ═══════════════════════════════════════ -->
+<div id="authPage" class="page active auth-wrap">
 
-  <!-- Mini header on auth page -->
+  <!-- Small header on auth page -->
   <div style="background:var(--white);border-bottom:4px solid var(--navy);">
     <div class="util-bar">
       <div class="util-row">
@@ -377,18 +366,16 @@ img{max-width:100%;}
           <a href="#">ECI Official Portal</a>
           <a href="#">UIDAI</a>
           <a href="#">Voter Helpline: 1950</a>
-          <a href="#">Accessibility</a>
         </div>
         <div class="util-right">
-          <div class="fsize-btns"><button aria-label="Decrease font">A-</button><button aria-label="Normal font">A</button><button aria-label="Increase font">A+</button></div>
-          <button class="lang-btn active">English</button>
+          <button class="lang-btn on">English</button>
           <button class="lang-btn">हिन्दी</button>
         </div>
       </div>
     </div>
     <div style="max-width:1240px;margin:0 auto;padding:13px 18px;display:flex;justify-content:center;">
       <div style="display:flex;align-items:center;gap:14px;">
-        <svg width="70" height="70" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-label="National Emblem">
+        <svg width="70" height="70" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
           <circle cx="50" cy="50" r="46" fill="none" stroke="#1a3a6b" stroke-width="1.4"/>
           <circle cx="50" cy="50" r="38" fill="none" stroke="#1a3a6b" stroke-width=".7"/>
           <g stroke="#000080" stroke-width="1.1" opacity=".82">
@@ -421,55 +408,37 @@ img{max-width:100%;}
   </div>
   <div class="tri"></div>
 
-  <div class="auth-body-wrap">
+  <div class="auth-body">
     <div class="auth-box">
 
-      <!-- ── TABS ── -->
-      <div class="auth-tabs" role="tablist" aria-label="Authentication options">
-        <button
-          class="auth-tab active"
-          id="tabLogin"
-          role="tab"
-          aria-selected="true"
-          aria-controls="loginPanel"
-          onclick="switchAuthTab('login')">
+      <!-- TABS -->
+      <div class="auth-tabs">
+        <button class="auth-tab active" id="tabLogin" onclick="switchTab('login')">
           🔑 &nbsp;Voter Login / मतदाता लॉगिन
         </button>
-        <button
-          class="auth-tab"
-          id="tabReg"
-          role="tab"
-          aria-selected="false"
-          aria-controls="regPanel"
-          onclick="switchAuthTab('register')">
+        <button class="auth-tab" id="tabReg" onclick="switchTab('register')">
           📋 &nbsp;New Registration / नया पंजीकरण
         </button>
       </div>
 
-      <!-- ── LOGIN PANEL ── -->
-      <div id="loginPanel" class="auth-panel active" role="tabpanel" aria-labelledby="tabLogin">
-        <div class="auth-box-hdr">
+      <!-- LOGIN PANEL -->
+      <div id="loginPanel" class="auth-panel active">
+        <div class="auth-phdr">
           <h2>Voter Login — e-VBS Portal</h2>
           <p>Enter your Voter ID (EPIC) number and password to access the portal</p>
         </div>
-        <div class="auth-box-inner">
+        <div class="auth-pinner">
           <div id="loginAlert"></div>
-          <div class="f2">
+          <div class="f2" style="margin-bottom:12px;">
             <div class="fg">
-              <label class="lbl" for="lEpic">EPIC Number (Voter ID) <span class="req">*</span><span class="hi2">मतदाता पहचान पत्र</span></label>
+              <label class="lbl">EPIC Number (Voter ID) <span class="req">*</span><span class="hi2">मतदाता पहचान पत्र</span></label>
               <input class="inp" id="lEpic" type="text" placeholder="e.g. ABC1234567" maxlength="10" style="text-transform:uppercase" autocomplete="username"/>
-              <div class="hint">As printed on your Voter ID card issued by ECI</div>
+              <div class="hint">3 letters + 7 digits, as on your Voter ID card</div>
             </div>
             <div class="fg">
-              <label class="lbl" for="lPass">Password <span class="req">*</span><span class="hi2">पासवर्ड</span></label>
-              <input class="inp" id="lPass" type="password" placeholder="Your account password" autocomplete="current-password"/>
+              <label class="lbl">Password <span class="req">*</span><span class="hi2">पासवर्ड</span></label>
+              <input class="inp" id="lPass" type="password" placeholder="Your password" autocomplete="current-password"/>
             </div>
-          </div>
-          <div style="display:flex;justify-content:space-between;align-items:center;margin:11px 0;">
-            <label style="display:flex;align-items:center;gap:6px;font-size:.73rem;cursor:pointer;">
-              <input type="checkbox" style="accent-color:var(--navy)"/> Remember this device
-            </label>
-            <a href="#" style="font-size:.72rem;">Forgot Password?</a>
           </div>
           <button class="btn btn-navy btn-full" id="loginBtn" onclick="doLogin()">
             Login to Portal / लॉगिन करें
@@ -481,118 +450,102 @@ img{max-width:100%;}
         </div>
       </div>
 
-      <!-- ── REGISTRATION PANEL ── -->
-      <div id="regPanel" class="auth-panel" role="tabpanel" aria-labelledby="tabReg">
-        <div class="auth-box-hdr">
+      <!-- REGISTER PANEL -->
+      <div id="regPanel" class="auth-panel">
+        <div class="auth-phdr">
           <h2>New Voter Registration / नया मतदाता पंजीकरण</h2>
-          <p>Register using your Aadhaar and existing Voter ID (EPIC) card details</p>
+          <p>Register using your Aadhaar and Voter ID (EPIC) card details</p>
         </div>
-        <div class="auth-box-inner">
+        <div class="auth-pinner">
           <div id="regAlert"></div>
 
-          <!-- Step 1: Personal Identity -->
           <div class="fsec">
-            <div class="fsec-title"><div class="snum">1</div>Personal Identity / व्यक्तिगत पहचान</div>
+            <div class="fsec-ttl"><div class="snum">1</div>Personal Identity / व्यक्तिगत पहचान</div>
             <div class="f3">
               <div class="fg">
-                <label class="lbl" for="rName">Full Name <span class="req">*</span><span class="hi2">पूरा नाम</span></label>
-                <input class="inp" id="rName" type="text" placeholder="As on Aadhaar card"/>
+                <label class="lbl">Full Name <span class="req">*</span><span class="hi2">पूरा नाम</span></label>
+                <input class="inp" id="rName" placeholder="As on Aadhaar card"/>
               </div>
               <div class="fg">
-                <label class="lbl" for="rDob">Date of Birth <span class="req">*</span><span class="hi2">जन्म तिथि</span></label>
+                <label class="lbl">Date of Birth <span class="req">*</span></label>
                 <input class="inp" id="rDob" type="date"/>
               </div>
               <div class="fg">
-                <label class="lbl" for="rGender">Gender <span class="req">*</span><span class="hi2">लिंग</span></label>
+                <label class="lbl">Gender <span class="req">*</span><span class="hi2">लिंग</span></label>
                 <select class="sel" id="rGender">
                   <option value="">— Select —</option>
-                  <option>Male</option>
-                  <option>Female</option>
-                  <option>Other</option>
+                  <option>Male</option><option>Female</option><option>Other</option>
                 </select>
               </div>
             </div>
             <div class="f2">
               <div class="fg">
-                <label class="lbl" for="rAadhaar">Aadhaar Number <span class="req">*</span><span class="hi2">आधार संख्या</span></label>
-                <input class="inp" id="rAadhaar" type="text" placeholder="XXXX XXXX XXXX" maxlength="14" oninput="fmtAadh(this)" inputmode="numeric"/>
-                <div class="hint">Hashed locally — never transmitted in plaintext</div>
+                <label class="lbl">Aadhaar Number <span class="req">*</span><span class="hi2">आधार संख्या</span></label>
+                <input class="inp" id="rAadhaar" placeholder="XXXX XXXX XXXX" maxlength="14" oninput="fmtAadh(this)" inputmode="numeric"/>
+                <div class="hint">12 digits — hashed locally, never transmitted as plain text</div>
               </div>
               <div class="fg">
-                <label class="lbl" for="rEpic">EPIC Number (Voter ID) <span class="req">*</span></label>
-                <input class="inp" id="rEpic" type="text" placeholder="ABC1234567" maxlength="10" style="text-transform:uppercase" autocomplete="username"/>
-                <div class="hint">10-character code on your Voter ID card</div>
+                <label class="lbl">EPIC Number (Voter ID) <span class="req">*</span></label>
+                <input class="inp" id="rEpic" placeholder="ABC1234567" maxlength="10" style="text-transform:uppercase" autocomplete="username"/>
+                <div class="hint">3 letters + 7 digits on your Voter ID card</div>
               </div>
             </div>
           </div>
 
-          <!-- Step 2: Contact & Constituency -->
           <div class="fsec">
-            <div class="fsec-title"><div class="snum">2</div>Contact &amp; Constituency / संपर्क और निर्वाचन क्षेत्र</div>
+            <div class="fsec-ttl"><div class="snum">2</div>Contact &amp; Constituency / संपर्क और निर्वाचन क्षेत्र</div>
             <div class="f3">
               <div class="fg">
-                <label class="lbl" for="rPhone">Mobile Number <span class="req">*</span><span class="hi2">मोबाइल नंबर</span></label>
+                <label class="lbl">Mobile Number <span class="req">*</span><span class="hi2">मोबाइल नंबर</span></label>
                 <input class="inp" id="rPhone" type="tel" placeholder="10-digit number" maxlength="10" inputmode="tel"/>
                 <div class="hint">Must be linked with your Aadhaar</div>
               </div>
               <div class="fg">
-                <label class="lbl" for="rEmail">Email Address<span class="hi2">ईमेल (वैकल्पिक)</span></label>
+                <label class="lbl">Email <span class="hi2">ईमेल (optional)</span></label>
                 <input class="inp" id="rEmail" type="email" placeholder="Optional"/>
               </div>
               <div class="fg">
-                <label class="lbl" for="rState">State / UT <span class="req">*</span><span class="hi2">राज्य</span></label>
+                <label class="lbl">State / UT <span class="req">*</span></label>
                 <select class="sel" id="rState">
-                  <option value="">— Select State —</option>
-                  <option>Uttar Pradesh</option>
-                  <option>Maharashtra</option>
-                  <option>West Bengal</option>
-                  <option>Bihar</option>
-                  <option>Tamil Nadu</option>
-                  <option>Rajasthan</option>
-                  <option>Karnataka</option>
-                  <option>Delhi</option>
-                  <option>Gujarat</option>
-                  <option>Madhya Pradesh</option>
+                  <option value="">— Select —</option>
+                  <option>Uttar Pradesh</option><option>Maharashtra</option>
+                  <option>West Bengal</option><option>Bihar</option>
+                  <option>Tamil Nadu</option><option>Rajasthan</option>
+                  <option>Karnataka</option><option>Delhi</option>
+                  <option>Gujarat</option><option>Madhya Pradesh</option>
                 </select>
               </div>
             </div>
             <div class="fg">
-              <label class="lbl" for="rCons">Parliamentary Constituency <span class="req">*</span><span class="hi2">संसदीय निर्वाचन क्षेत्र</span></label>
+              <label class="lbl">Parliamentary Constituency <span class="req">*</span><span class="hi2">संसदीय निर्वाचन क्षेत्र</span></label>
               <select class="sel" id="rCons">
                 <option value="">— Select Constituency —</option>
-                <option>Lucknow (18-UP)</option>
-                <option>Mumbai North (06-MH)</option>
-                <option>New Delhi (01-DL)</option>
-                <option>Patna Sahib (03-BR)</option>
-                <option>Chennai Central (07-TN)</option>
-                <option>Bangalore South (08-KA)</option>
-                <option>Jaipur (01-RJ)</option>
-                <option>Kolkata North (01-WB)</option>
+                <option>Lucknow (18-UP)</option><option>Mumbai North (06-MH)</option>
+                <option>New Delhi (01-DL)</option><option>Patna Sahib (03-BR)</option>
+                <option>Chennai Central (07-TN)</option><option>Bangalore South (08-KA)</option>
+                <option>Jaipur (01-RJ)</option><option>Kolkata North (01-WB)</option>
               </select>
             </div>
           </div>
 
-          <!-- Step 3: Password -->
           <div class="fsec">
-            <div class="fsec-title"><div class="snum">3</div>Account Security / खाता सुरक्षा</div>
+            <div class="fsec-ttl"><div class="snum">3</div>Account Password / पासवर्ड</div>
             <div class="f2">
               <div class="fg">
-                <label class="lbl" for="rPass">Create Password <span class="req">*</span><span class="hi2">पासवर्ड बनाएं</span></label>
+                <label class="lbl">Create Password <span class="req">*</span></label>
                 <input class="inp" id="rPass" type="password" placeholder="Minimum 8 characters" autocomplete="new-password"/>
-                <div class="hint">Use letters, numbers &amp; special characters</div>
               </div>
               <div class="fg">
-                <label class="lbl" for="rPass2">Confirm Password <span class="req">*</span></label>
+                <label class="lbl">Confirm Password <span class="req">*</span></label>
                 <input class="inp" id="rPass2" type="password" placeholder="Re-enter password" autocomplete="new-password"/>
               </div>
             </div>
           </div>
 
-          <!-- Declaration -->
-          <div class="decl" style="margin-bottom:13px;">
+          <div class="decl" style="margin-bottom:14px;">
             <label>
               <input type="checkbox" id="rDecl" style="accent-color:var(--navy)"/>
-              I declare that the above information is true, correct and complete. I understand that providing false information is an offence punishable under Section 31 of the Representation of the People Act, 1950.
+              I declare that the above information is true and correct. I understand that false declaration is an offence under Section 31 of the Representation of the People Act, 1950.
             </label>
           </div>
 
@@ -601,13 +554,15 @@ img{max-width:100%;}
           </button>
 
           <p style="text-align:center;font-size:.73rem;color:var(--muted);margin-top:12px;">
-            Already registered? <a href="#" onclick="switchAuthTab('login');return false;" style="font-weight:700;color:var(--navy3);">Log in here</a>
+            Already registered?
+            <a href="#" onclick="switchTab('login');return false;" style="font-weight:700;">Log in here</a>
           </p>
         </div>
       </div>
 
-      <div class="auth-box-foot">
-        🔒 Secured by TLS 1.3 · NIC Certified · ISO/IEC 27001:2022 &nbsp;|&nbsp; Voter Helpline: <strong style="color:var(--navy);">1950</strong> (Toll Free, 24×7)
+      <div class="auth-pfoot">
+        🔒 Secured by TLS 1.3 · NIC Certified · ISO/IEC 27001:2022 &nbsp;|&nbsp;
+        Voter Helpline: <strong style="color:var(--navy);">1950</strong> (Toll Free, 24×7)
       </div>
     </div>
   </div>
@@ -619,33 +574,27 @@ img{max-width:100%;}
 </div>
 
 
-<!-- ╔══════════════════════════════════════╗
-     ║           PORTAL PAGE               ║
-     ╚══════════════════════════════════════╝ -->
+<!-- ═══════════════════════════════════════
+     PORTAL PAGE  (after login)
+     ═══════════════════════════════════════ -->
 <div id="portalPage" class="page">
 
-  <!-- UTIL BAR -->
   <div class="util-bar">
     <div class="util-row">
       <div class="util-left">
-        <a href="#">Skip to Content</a>
-        <a href="#">Screen Reader</a>
-        <a href="https://eci.gov.in" target="_blank">ECI Portal</a>
-        <a href="#">RTI</a>
+        <a href="#">Skip to Content</a><a href="#">ECI Portal</a><a href="#">RTI</a>
       </div>
       <div class="util-right">
-        <div class="fsize-btns"><button>A-</button><button>A</button><button>A+</button></div>
-        <button class="lang-btn active">English</button>
+        <button class="lang-btn on">English</button>
         <button class="lang-btn">हिन्दी</button>
       </div>
     </div>
   </div>
 
-  <!-- HEADER -->
-  <div class="site-header">
-    <div class="hdr-inner">
+  <div class="site-hdr">
+    <div class="hdr-row">
       <div class="brand">
-        <svg class="nat-emblem" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-label="National Emblem">
+        <svg class="emblem" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
           <circle cx="50" cy="50" r="46" fill="none" stroke="#1a3a6b" stroke-width="1.4"/>
           <circle cx="50" cy="50" r="38" fill="none" stroke="#1a3a6b" stroke-width=".7"/>
           <g stroke="#000080" stroke-width="1.1" opacity=".82">
@@ -674,74 +623,70 @@ img{max-width:100%;}
           <span class="brand-sub">e-VBS — Electronic Voting &amp; Blockchain System</span>
         </div>
       </div>
-      <div class="hdr-center">
+      <div class="hdr-mid">
         <h1>e-VBS Portal — <em>Blockchain-Based Secure Voting</em></h1>
-        <p>NIC CERTIFIED &nbsp;·&nbsp; UIDAI INTEGRATED &nbsp;·&nbsp; ISO/IEC 27001:2022</p>
+        <p>NIC CERTIFIED · UIDAI INTEGRATED · ISO/IEC 27001:2022</p>
       </div>
       <div class="hdr-right">
         <div class="helpline">Voter Helpline: <strong>1950</strong> (Toll Free)</div>
         <div class="helpline">Tech Support: <strong>1800-111-950</strong></div>
-        <div class="hdr-badges">
+        <div class="badges">
           <span class="badge b-sec">🔒 SSL</span>
           <span class="badge b-live">🟢 Live</span>
           <span class="badge b-nic">NIC Hosted</span>
         </div>
         <div class="hdr-user">
-          <span class="hdr-user-name" id="hdrUserName">—</span>
-          <button class="logout-btn" onclick="doLogout()">Logout / लॉगआउट</button>
+          <span class="hdr-uname" id="hdrUserName">—</span>
+          <button class="logout-btn" onclick="doLogout()">Logout</button>
         </div>
       </div>
     </div>
   </div>
   <div class="tri"></div>
 
-  <!-- MAIN NAV -->
-  <nav class="main-nav" aria-label="Main navigation">
+  <nav class="main-nav">
     <div class="nav-row">
-      <button class="nav-btn active" id="nb-home"     onclick="gotoSection('home')">🏠 Home</button>
-      <button class="nav-btn"         id="nb-vote"     onclick="gotoSection('vote')">🗳️ Cast Vote</button>
-      <button class="nav-btn"         id="nb-results"  onclick="gotoSection('results')">📊 Results</button>
-      <button class="nav-btn"         id="nb-chain"    onclick="gotoSection('chain')">⛓️ Blockchain</button>
-      <button class="nav-btn"         id="nb-profile"  onclick="gotoSection('profile')">👤 My Profile</button>
-      <button class="nav-btn"         id="nb-security" onclick="gotoSection('security')">🔐 Security</button>
+      <button class="nav-btn on" id="nb-home"     onclick="gotoSec('home')">🏠 Home</button>
+      <button class="nav-btn"    id="nb-vote"     onclick="gotoSec('vote')">🗳️ Cast Vote</button>
+      <button class="nav-btn"    id="nb-results"  onclick="gotoSec('results')">📊 Results</button>
+      <button class="nav-btn"    id="nb-chain"    onclick="gotoSec('chain')">⛓️ Blockchain</button>
+      <button class="nav-btn"    id="nb-profile"  onclick="gotoSec('profile')">👤 My Profile</button>
+      <button class="nav-btn"    id="nb-security" onclick="gotoSec('security')">🔐 Security</button>
       <div class="nav-clock">📅 <span id="clockEl" style="margin-left:5px;">—</span></div>
     </div>
   </nav>
 
-  <!-- MARQUEE -->
-  <div class="marquee-bar" aria-hidden="true">
-    <div class="mq-label">NOTICE</div>
-    <div class="mq-text">
+  <div class="mq-bar">
+    <div class="mq-tag">NOTICE</div>
+    <div class="mq-txt">
       ⚑ General Election 2025 — Phase III voting is currently OPEN &nbsp;|&nbsp;
       🔒 Votes secured by Groth16 zk-SNARK on Ethereum Mainnet &nbsp;|&nbsp;
-      ℹ️ Aadhaar issues? Contact UIDAI: 1947 &nbsp;|&nbsp;
+      ℹ️ Aadhaar issues? UIDAI helpline: 1947 &nbsp;|&nbsp;
       ⚠️ Do not share your OTP or password with anyone &nbsp;|&nbsp;
-      📊 Live blockchain tally updated every ~2.3 seconds &nbsp;|&nbsp;
+      📊 Blockchain tally updates every 2.3 seconds &nbsp;|&nbsp;
       ⚑ General Election 2025 — Phase III voting is currently OPEN &nbsp;|&nbsp;
       🔒 Votes secured by Groth16 zk-SNARK on Ethereum Mainnet &nbsp;|&nbsp;
-      ℹ️ Aadhaar issues? Contact UIDAI: 1947 &nbsp;|&nbsp;
+      ℹ️ Aadhaar issues? UIDAI helpline: 1947 &nbsp;|&nbsp;
       ⚠️ Do not share your OTP or password with anyone &nbsp;|&nbsp;
-      📊 Live blockchain tally updated every ~2.3 seconds
+      📊 Blockchain tally updates every 2.3 seconds
     </div>
   </div>
 
-  <!-- BREADCRUMB -->
-  <div class="breadcrumb">
+  <div class="bc-bar">
     <div class="bc-row">
-      <a href="#">Home</a><span>›</span>
-      <a href="#">e-VBS Portal</a><span>›</span>
+      <a href="#">Home</a><span>›</span><a href="#">e-VBS Portal</a><span>›</span>
       <span id="bcCur">Dashboard</span>
     </div>
   </div>
 
-  <!-- ══════════ SECTION: HOME ══════════ -->
+  <!-- HOME SECTION -->
   <div id="s-home" class="wrap two-col">
     <div>
       <div style="background:var(--white);border:1px solid var(--border);border-left:4px solid var(--navy);padding:11px 15px;display:flex;gap:11px;margin-bottom:14px;box-shadow:var(--sh);">
         <span style="font-size:1.2rem;flex-shrink:0;margin-top:1px;">📢</span>
         <div style="font-size:.78rem;color:var(--text2);line-height:1.6;">
           <strong style="color:var(--navy);display:block;margin-bottom:2px;font-family:var(--fs);">Important Notice / महत्वपूर्ण सूचना</strong>
-          This portal uses end-to-end cryptographic security. Votes are recorded as zero-knowledge proofs on the public blockchain. Your Aadhaar is hashed locally and never transmitted. For assistance call <strong>1950</strong> (Toll-free, 24×7).
+          This portal uses end-to-end cryptographic security. Votes are recorded as zero-knowledge proofs on the public blockchain. Your Aadhaar is hashed locally and never transmitted in plaintext. For help call <strong>1950</strong> (Toll-free, 24×7).
         </div>
       </div>
       <div class="card">
@@ -756,17 +701,17 @@ img{max-width:100%;}
       <div class="card">
         <div class="card-hdr"><span>ℹ️</span><h2>How the System Works<span class="hi">प्रणाली कैसे कार्य करती है</span></h2></div>
         <div class="card-body">
-          <div class="step"><div class="step-circle">1</div><div class="step-body"><h4>Aadhaar Identity Verification via UIDAI API</h4><p>Your 12-digit Aadhaar and OTP are verified against the UIDAI biometric database. A SHA-3 commitment is computed locally. Your raw Aadhaar is discarded immediately.</p><div class="chips"><span class="chip">UIDAI API</span><span class="chip">SHA-3</span><span class="chip">OTP Auth</span><span class="chip">Poseidon Hash</span></div></div></div>
-          <div class="step"><div class="step-circle">2</div><div class="step-body"><h4>Voter Nullifier — One-Person One-Vote</h4><p>A unique Voter Nullifier is derived using Poseidon hashing. This token is stored on-chain to prevent double-voting, without ever revealing your identity.</p><div class="chips"><span class="chip">Poseidon Hash</span><span class="chip">Nullifier</span><span class="chip">Anti-Double-Vote</span></div></div></div>
-          <div class="step"><div class="step-circle">3</div><div class="step-body"><h4>Zero-Knowledge Proof — Groth16/BN254</h4><p>A zk-SNARK proof C(x,w)=1 is generated entirely in your browser. It proves you are eligible and have not voted — without revealing your identity or vote to anyone.</p><div class="chips"><span class="chip">Groth16</span><span class="chip">zk-SNARK</span><span class="chip">BN254 Curve</span></div></div></div>
-          <div class="step"><div class="step-circle">4</div><div class="step-body"><h4>IPFS Sharding + Blockchain Recording</h4><p>Anonymised metadata is sharded across IPFS nodes. The nullifier and proof are submitted to the Solidity smart contract, which atomically increments the tally and emits a VoteCast event.</p><div class="chips"><span class="chip">IPFS</span><span class="chip">Solidity 0.8.24</span><span class="chip">Ethereum PoS</span></div></div></div>
+          <div class="step"><div class="step-circle">1</div><div class="step-body"><h4>Aadhaar Identity Verification via UIDAI API</h4><p>Your 12-digit Aadhaar and OTP are verified. A SHA-3 commitment is computed locally and your Aadhaar is immediately discarded.</p><div class="chips"><span class="chip">UIDAI API</span><span class="chip">SHA-3</span><span class="chip">OTP Auth</span></div></div></div>
+          <div class="step"><div class="step-circle">2</div><div class="step-body"><h4>Voter Nullifier — One-Person One-Vote</h4><p>A unique Voter Nullifier derived via Poseidon hashing is stored on-chain. It prevents double-voting without ever revealing your identity.</p><div class="chips"><span class="chip">Poseidon Hash</span><span class="chip">Nullifier</span><span class="chip">Anti-Double-Vote</span></div></div></div>
+          <div class="step"><div class="step-circle">3</div><div class="step-body"><h4>Zero-Knowledge Proof — Groth16/BN254</h4><p>A zk-SNARK proof C(x,w)=1 proves you are eligible and haven't voted — without revealing your identity or vote choice to anyone.</p><div class="chips"><span class="chip">Groth16</span><span class="chip">zk-SNARK</span><span class="chip">C(x,w)=1</span></div></div></div>
+          <div class="step"><div class="step-circle">4</div><div class="step-body"><h4>IPFS Sharding + Blockchain Recording</h4><p>Anonymised metadata is sharded across IPFS nodes. The nullifier and proof are submitted to the smart contract which atomically records your vote.</p><div class="chips"><span class="chip">IPFS</span><span class="chip">Solidity 0.8.24</span><span class="chip">Ethereum PoS</span></div></div></div>
         </div>
       </div>
     </div>
     <div class="sidebar" id="sidebar-home"></div>
   </div>
 
-  <!-- ══════════ SECTION: VOTE ══════════ -->
+  <!-- VOTE SECTION -->
   <div id="s-vote" class="wrap two-col" style="display:none;">
     <div>
       <div class="card">
@@ -774,60 +719,56 @@ img{max-width:100%;}
         <div class="card-body">
           <div id="alreadyVotedBanner" style="display:none;" class="voted-banner">
             <span style="font-size:1.5rem;">✅</span>
-            <div><strong style="font-family:var(--fs);color:var(--green2);font-size:.95rem;">You have already voted in this election.</strong><br><span style="font-size:.75rem;color:var(--text2);">Your vote is recorded on the blockchain. View your receipt under <strong>My Profile</strong>.</span></div>
+            <div><strong style="font-family:var(--fs);color:var(--green2);font-size:.95rem;">You have already voted in this election.</strong><br><span style="font-size:.75rem;color:var(--text2);">Your vote is on the blockchain. See your receipt under <strong>My Profile</strong>.</span></div>
           </div>
           <div id="voteFormArea">
             <div class="fsec">
-              <div class="fsec-title"><div class="snum">1</div>Identity Verification / पहचान सत्यापन</div>
+              <div class="fsec-ttl"><div class="snum">1</div>Identity Verification / पहचान सत्यापन</div>
               <div class="f2">
                 <div class="fg">
-                  <label class="lbl" for="vAadhaar">Aadhaar Number <span class="req">*</span><span class="hi2">आधार संख्या</span></label>
-                  <input class="inp" id="vAadhaar" type="text" placeholder="XXXX XXXX XXXX" maxlength="14" oninput="fmtAadh(this)" inputmode="numeric"/>
+                  <label class="lbl">Aadhaar Number <span class="req">*</span><span class="hi2">आधार संख्या</span></label>
+                  <input class="inp" id="vAadhaar" placeholder="XXXX XXXX XXXX" maxlength="14" oninput="fmtAadh(this)" inputmode="numeric"/>
                   <div class="hint">Hashed locally — never transmitted in plaintext</div>
                 </div>
                 <div class="fg">
-                  <label class="lbl" for="vOtp">OTP Verification <span class="req">*</span><span class="hi2">ओटीपी</span></label>
+                  <label class="lbl">OTP Verification <span class="req">*</span><span class="hi2">ओटीपी</span></label>
                   <div class="otp-row">
-                    <input class="inp" id="vOtp" type="text" placeholder="6-digit OTP" maxlength="6" inputmode="numeric" oninput="onOtpInput()"/>
-                    <button class="otp-send-btn" id="otpBtn" onclick="sendOTP()">Send OTP</button>
+                    <input class="inp" id="vOtp" placeholder="6-digit OTP" maxlength="6" inputmode="numeric" oninput="onOtpInput()"/>
+                    <button class="otp-btn" id="otpBtn" onclick="sendOTP()">Send OTP</button>
                   </div>
-                  <div class="hint" id="otpHint">OTP sent to your registered mobile number</div>
+                  <div class="hint" id="otpHint">OTP will be sent to your registered mobile</div>
                 </div>
               </div>
               <div class="null-box" id="nullBox">
                 <div class="null-top">Voter Nullifier — Auto-Generated Cryptographic Token</div>
                 <div class="null-val" id="nullVal"></div>
-                <div class="null-note">✅ <span>Prevents double-voting without revealing your identity. Mathematically unlinkable to your Aadhaar.</span></div>
+                <div class="null-note">✅ Prevents double-voting without revealing your identity.</div>
               </div>
               <div class="vstrip" id="vstripEl">
-                <span>✅ Identity Verified · Nullifier Derived · ZK Proof Ready · C(x,w)=1</span>
+                <span>✅ Identity Verified · Nullifier Derived · ZK Proof Ready</span>
               </div>
             </div>
             <div class="fsec">
-              <div class="fsec-title"><div class="snum">2</div>Constituency / निर्वाचन क्षेत्र</div>
+              <div class="fsec-ttl"><div class="snum">2</div>Constituency / निर्वाचन क्षेत्र</div>
               <div style="background:var(--light);border:1px solid var(--border);padding:10px 13px;font-size:.79rem;color:var(--text2);">
                 <strong>State:</strong> <span id="vState">—</span> &nbsp;|&nbsp; <strong>Constituency:</strong> <span id="vCons">—</span>
                 <div style="font-size:.64rem;color:var(--muted);margin-top:3px;">Automatically assigned from your voter registration.</div>
               </div>
             </div>
             <div class="fsec">
-              <div class="fsec-title"><div class="snum">3</div>Select Candidate / उम्मीदवार चुनें</div>
-              <div class="cand-list" id="candList">
-                <div style="color:var(--muted);font-size:.8rem;padding:10px;">Loading candidates for your constituency...</div>
-              </div>
+              <div class="fsec-ttl"><div class="snum">3</div>Select Candidate / उम्मीदवार चुनें</div>
+              <div class="cand-list" id="candList"><div style="color:var(--muted);font-size:.8rem;padding:10px;">Loading candidates…</div></div>
             </div>
             <div class="decl">
               <label>
                 <input type="checkbox" id="vDecl" onchange="checkReady()"/>
-                I solemnly declare that I am a bona fide registered voter in the above constituency, that I have not previously voted in this election, and that I cast this vote of my own free will. I understand that making a false declaration is an offence under Section 31 of the Representation of the People Act, 1950.
+                I solemnly declare I am a registered voter in the above constituency, have not previously voted in this election, and cast this vote freely. False declaration is an offence under Section 31, Representation of the People Act, 1950.
               </label>
             </div>
             <div style="margin-top:15px;padding-top:13px;border-top:1px solid var(--border);">
-              <button class="btn btn-navy btn-full" id="submitVoteBtn" onclick="submitVote()" disabled>
-                🗳️ &nbsp;Submit Vote / मत डालें
-              </button>
+              <button class="btn btn-navy btn-full" id="submitVoteBtn" onclick="submitVote()" disabled>🗳️ &nbsp;Submit Vote / मत डालें</button>
               <div style="font-size:.64rem;color:var(--muted);text-align:center;margin-top:7px;line-height:1.55;">
-                By submitting, you consent to your vote being recorded on the public blockchain as a zero-knowledge proof. Your identity is protected under the IT Act 2000 and Aadhaar Act 2016.
+                By submitting, you consent to your vote being recorded on the public blockchain as a zero-knowledge proof. Your identity is protected under IT Act 2000 and Aadhaar Act 2016.
               </div>
             </div>
           </div>
@@ -837,101 +778,97 @@ img{max-width:100%;}
     <div class="sidebar" id="sidebar-vote"></div>
   </div>
 
-  <!-- ══════════ SECTION: RESULTS ══════════ -->
+  <!-- RESULTS SECTION -->
   <div id="s-results" class="wrap" style="display:none;">
     <div class="card">
       <div class="card-hdr"><span>📊</span><h2>Live Election Results / लाइव चुनाव परिणाम<span class="hi">General Election 2025 — Real-time Blockchain Tally</span></h2></div>
       <div class="card-body">
-        <div class="alert al-info"><span>ℹ️</span><span>Results sourced directly from the blockchain smart contract tally. Immutable and tamper-proof.</span></div>
-        <div class="overall-card"><div class="oc-hdr">🏛️ National Summary — All Constituencies Combined</div><div style="padding:14px;" id="overallDiv">Loading...</div></div>
+        <div class="alert al-info"><span>ℹ️</span><span>Results sourced directly from the blockchain smart contract. Immutable and tamper-proof.</span></div>
+        <div class="overall-card"><div class="oc-hdr">🏛️ National Summary — All Constituencies Combined</div><div style="padding:14px;" id="overallDiv">Loading…</div></div>
         <div style="font-family:var(--fs);font-size:.88rem;font-weight:700;color:var(--navy);margin-bottom:11px;border-bottom:2px solid var(--saffron);padding-bottom:5px;">Constituency-wise Breakdown</div>
-        <div class="results-grid" id="resultsGrid">Loading...</div>
+        <div class="results-grid" id="resultsGrid">Loading…</div>
       </div>
     </div>
   </div>
 
-  <!-- ══════════ SECTION: BLOCKCHAIN ══════════ -->
+  <!-- BLOCKCHAIN SECTION -->
   <div id="s-chain" class="wrap" style="display:none;">
     <div class="card">
       <div class="card-hdr"><span>⛓️</span><h2>Live Blockchain Ledger<span class="hi">ब्लॉकचेन लेजर — Ethereum Mainnet</span></h2></div>
       <div class="chain-scroll"><div class="chain-row" id="chainRow"></div></div>
     </div>
     <div class="card">
-      <div class="card-hdr"><span>📋</span><h2>Smart Contract — VotingSystem.sol<span class="hi">Verified on Etherscan · 0x4A2F...8B71</span></h2></div>
+      <div class="card-hdr"><span>📋</span><h2>Smart Contract — VotingSystem.sol<span class="hi">Contract: 0x4A2F...8B71</span></h2></div>
       <div class="card-body">
-        <div style="font-size:.74rem;color:var(--text2);margin-bottom:11px;padding:8px 12px;background:var(--light);border:1px solid var(--border);border-left:3px solid var(--gold);">★ <strong>Security Gold</strong> lines = nullifier double-vote guard. Contract: <code style="font-size:.69rem;">0x4A2F8b3c...8B71</code></div>
+        <div style="font-size:.74rem;color:var(--text2);margin-bottom:11px;padding:8px 12px;background:var(--light);border:1px solid var(--border);border-left:3px solid var(--gold);">★ <strong>Security Gold</strong> lines = nullifier double-vote guard.</div>
         <div class="contract">
           <div class="cl"><span class="n">1</span><span class="cm">// SPDX-License-Identifier: MIT · Election Commission of India</span></div>
           <div class="cl"><span class="n">2</span><span class="kw">pragma solidity</span> ^0.8.24;</div>
-          <div class="cl"><span class="n">3</span></div>
-          <div class="cl"><span class="n">4</span><span class="kw">contract</span> <span class="fn">VotingSystem</span> {</div>
-          <div class="cl"><span class="n">5</span>&nbsp;&nbsp;<span class="ty">address</span>  <span class="kw">public</span> <span class="cv">electionCommission</span>;</div>
-          <div class="cl"><span class="n">6</span>&nbsp;&nbsp;<span class="ty">bool</span>     <span class="kw">public</span> <span class="cv">votingOpen</span>;</div>
-          <div class="cl"><span class="n">7</span>&nbsp;&nbsp;<span class="ty">mapping</span>(<span class="ty">uint8</span>=&gt;<span class="ty">uint256</span>) <span class="kw">public</span> <span class="cv">tallies</span>;</div>
-          <div class="cl gld"><span class="n">8</span>&nbsp;&nbsp;<span class="ty">mapping</span>(<span class="ty">bytes32</span>=&gt;<span class="ty">bool</span>) <span class="kw">public</span> <span class="cv">nullifiers</span>;<span class="gld-tag">★ DOUBLE-VOTE GUARD</span></div>
-          <div class="cl"><span class="n">9</span>&nbsp;&nbsp;<span class="kw">event</span> <span class="fn">VoteCast</span>(<span class="ty">bytes32</span> <span class="kw">indexed</span> nullifier, <span class="ty">string</span> cid);</div>
-          <div class="cl"><span class="n">10</span></div>
-          <div class="cl"><span class="n">11</span>&nbsp;&nbsp;<span class="kw">function</span> <span class="fn">castVote</span>(<span class="ty">uint8</span> candidateId, <span class="ty">bytes32</span> nullifier, <span class="ty">bytes32[]</span> <span class="kw">calldata</span> proof, <span class="ty">string</span> <span class="kw">calldata</span> cid) <span class="kw">external</span> {</div>
-          <div class="cl"><span class="n">12</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">require</span>(votingOpen, <span class="str">"Closed"</span>);</div>
-          <div class="cl gld"><span class="n">13</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">require</span>(!<span class="cv">nullifiers</span>[nullifier], <span class="str">"Already voted"</span>);<span class="gld-tag">★ CHECK</span></div>
-          <div class="cl"><span class="n">14</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">require</span>(<span class="fn">verifyMerkle</span>(proof,nullifier));</div>
-          <div class="cl gld"><span class="n">15</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="cv">nullifiers</span>[nullifier]=<span class="kw">true</span>; <span class="cm">// CEI pattern</span><span class="gld-tag">★ SPENT</span></div>
-          <div class="cl"><span class="n">16</span>&nbsp;&nbsp;&nbsp;&nbsp;tallies[candidateId]++;</div>
-          <div class="cl"><span class="n">17</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">emit</span> <span class="fn">VoteCast</span>(nullifier,cid);</div>
-          <div class="cl"><span class="n">18</span>&nbsp;&nbsp;}</div>
-          <div class="cl"><span class="n">19</span>}</div>
+          <div class="cl"><span class="n">3</span><span class="kw">contract</span> <span class="fn">VotingSystem</span> {</div>
+          <div class="cl"><span class="n">4</span>&nbsp;&nbsp;<span class="ty">address</span>  <span class="kw">public</span> <span class="cv">electionCommission</span>;</div>
+          <div class="cl"><span class="n">5</span>&nbsp;&nbsp;<span class="ty">bool</span>     <span class="kw">public</span> <span class="cv">votingOpen</span>;</div>
+          <div class="cl"><span class="n">6</span>&nbsp;&nbsp;<span class="ty">mapping</span>(<span class="ty">uint8</span>=&gt;<span class="ty">uint256</span>) <span class="kw">public</span> <span class="cv">tallies</span>;</div>
+          <div class="cl gld"><span class="n">7</span>&nbsp;&nbsp;<span class="ty">mapping</span>(<span class="ty">bytes32</span>=&gt;<span class="ty">bool</span>) <span class="kw">public</span> <span class="cv">nullifiers</span>;<span class="gld-tag">★ DOUBLE-VOTE GUARD</span></div>
+          <div class="cl"><span class="n">8</span>&nbsp;&nbsp;<span class="kw">event</span> <span class="fn">VoteCast</span>(<span class="ty">bytes32</span> <span class="kw">indexed</span> nullifier, <span class="ty">string</span> cid);</div>
+          <div class="cl"><span class="n">9</span>&nbsp;&nbsp;<span class="kw">function</span> <span class="fn">castVote</span>(<span class="ty">uint8</span> id, <span class="ty">bytes32</span> n, <span class="ty">bytes32[]</span> <span class="kw">calldata</span> proof, <span class="ty">string</span> <span class="kw">calldata</span> cid) <span class="kw">external</span> {</div>
+          <div class="cl"><span class="n">10</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">require</span>(votingOpen, <span class="str">"Closed"</span>);</div>
+          <div class="cl gld"><span class="n">11</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">require</span>(!<span class="cv">nullifiers</span>[n], <span class="str">"Already voted"</span>);<span class="gld-tag">★ CHECK</span></div>
+          <div class="cl"><span class="n">12</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">require</span>(<span class="fn">verifyMerkle</span>(proof, n));</div>
+          <div class="cl gld"><span class="n">13</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="cv">nullifiers</span>[n]=<span class="kw">true</span>;<span class="gld-tag">★ SPENT</span></div>
+          <div class="cl"><span class="n">14</span>&nbsp;&nbsp;&nbsp;&nbsp;tallies[id]++; <span class="kw">emit</span> <span class="fn">VoteCast</span>(n, cid);</div>
+          <div class="cl"><span class="n">15</span>&nbsp;&nbsp;}</div>
+          <div class="cl"><span class="n">16</span>}</div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- ══════════ SECTION: PROFILE ══════════ -->
+  <!-- PROFILE SECTION -->
   <div id="s-profile" class="wrap" style="display:none;">
     <div class="card">
       <div class="card-hdr"><span>👤</span><h2>My Voter Profile<span class="hi">मेरी मतदाता प्रोफ़ाइल</span></h2></div>
-      <div class="card-body" id="profileBody">Loading...</div>
+      <div class="card-body" id="profileBody">Loading…</div>
     </div>
     <div class="card">
       <div class="card-hdr"><span>📋</span><h2>Activity Log / गतिविधि लॉग</h2></div>
-      <div class="card-body" id="auditBody">Loading...</div>
+      <div class="card-body" id="auditBody">Loading…</div>
     </div>
   </div>
 
-  <!-- ══════════ SECTION: SECURITY ══════════ -->
+  <!-- SECURITY SECTION -->
   <div id="s-security" class="wrap" style="display:none;">
     <div class="card">
       <div class="card-hdr"><span>🔐</span><h2>Security Protocol Overview<span class="hi">सुरक्षा प्रोटोकॉल</span></h2></div>
       <div class="card-body">
         <table class="sec-tbl">
-          <tr><th>Threat / Attack Vector</th><th>Mitigation Mechanism</th><th>Status</th></tr>
-          <tr><td>Double Voting</td><td>On-chain Poseidon nullifier mapping — TX reverts if spent (line 13)</td><td><span class="sb sb-no">BLOCKED</span></td></tr>
+          <tr><th>Threat / Attack</th><th>Mitigation</th><th>Status</th></tr>
+          <tr><td>Double Voting</td><td>On-chain Poseidon nullifier — TX reverts if already spent</td><td><span class="sb sb-no">BLOCKED</span></td></tr>
           <tr><td>Fake Identity (Sybil)</td><td>UIDAI Aadhaar biometric OTP + sealed Merkle eligibility root</td><td><span class="sb sb-ok">MITIGATED</span></td></tr>
           <tr><td>Vote Privacy</td><td>Groth16 zk-SNARK — ballot unlinkable to voter identity</td><td><span class="sb sb-ok">PROTECTED</span></td></tr>
-          <tr><td>Smart Contract Exploit</td><td>Certora formal verification · Reentrancy guard · CEI pattern · Multi-sig</td><td><span class="sb sb-ok">VERIFIED</span></td></tr>
-          <tr><td>MITM Interception</td><td>TLS 1.3 · NIC-certified SSL · HSTS preloaded</td><td><span class="sb sb-ok">ENCRYPTED</span></td></tr>
+          <tr><td>Smart Contract Exploit</td><td>Certora formal verification · Reentrancy guard · CEI pattern</td><td><span class="sb sb-ok">VERIFIED</span></td></tr>
+          <tr><td>MITM Interception</td><td>TLS 1.3 · NIC SSL · HSTS preloaded</td><td><span class="sb sb-ok">ENCRYPTED</span></td></tr>
           <tr><td>Result Tampering</td><td>Immutable ledger · 247 Ethereum PoS validators</td><td><span class="sb sb-ok">IMMUTABLE</span></td></tr>
-          <tr><td>Unauthorized Access</td><td>Scrypt passwords · HMAC-SHA256 sessions · IP audit log · OTP 2FA</td><td><span class="sb sb-ok">SECURED</span></td></tr>
-          <tr><td>Aadhaar Data Exposure</td><td>SHA-3 + HMAC commitment client-side · Raw Aadhaar discarded immediately</td><td><span class="sb sb-ok">PROTECTED</span></td></tr>
+          <tr><td>Unauthorised Access</td><td>Scrypt passwords · HMAC-SHA256 tokens · IP audit log · OTP 2FA</td><td><span class="sb sb-ok">SECURED</span></td></tr>
         </table>
       </div>
     </div>
   </div>
 
-  <!-- VOTE MODAL -->
-  <div class="modal-bg" id="voteModal" aria-modal="true" role="dialog" aria-label="Vote submission progress">
+  <!-- VOTE PROGRESS MODAL -->
+  <div class="modal-bg" id="voteModal">
     <div class="modal">
       <div class="modal-hdr"><span>🔒</span><h3>Secure Vote Submission / मत प्रसंस्करण</h3></div>
       <div class="modal-body">
-        <div id="modalStages">
-          <div class="stage-row" id="ms1"><div class="sicon">1</div><div><div>Aadhaar Identity Verification (UIDAI API)</div><div class="sdtl" id="ms1d"></div></div></div>
-          <div class="stage-row" id="ms2"><div class="sicon">2</div><div><div>Nullifier Derivation — SHA-3 → Poseidon</div><div class="sdtl" id="ms2d"></div></div></div>
-          <div class="stage-row" id="ms3"><div class="sicon">3</div><div><div>ZK-SNARK Proof Generation — Groth16</div><div class="sdtl" id="ms3d"></div></div></div>
+        <div id="mStages">
+          <div class="stage-row" id="ms1"><div class="sicon">1</div><div><div>Aadhaar Identity Verification</div><div class="sdtl" id="ms1d"></div></div></div>
+          <div class="stage-row" id="ms2"><div class="sicon">2</div><div><div>Nullifier Derivation (SHA-3 → Poseidon)</div><div class="sdtl" id="ms2d"></div></div></div>
+          <div class="stage-row" id="ms3"><div class="sicon">3</div><div><div>ZK-SNARK Proof Generation (Groth16)</div><div class="sdtl" id="ms3d"></div></div></div>
           <div class="stage-row" id="ms4"><div class="sicon">4</div><div><div>IPFS Metadata Sharding</div><div class="sdtl" id="ms4d"></div></div></div>
           <div class="stage-row" id="ms5"><div class="sicon">5</div><div><div>Blockchain Transaction Submission</div><div class="sdtl" id="ms5d"></div></div></div>
         </div>
         <div class="prog-wrap">
           <div class="prog-bg"><div class="prog-fill" id="mprog"></div></div>
-          <div class="prog-lbl" id="mprogl">Initiating secure connection...</div>
+          <div class="prog-lbl" id="mprogl">Initiating…</div>
         </div>
       </div>
       <div class="modal-success" id="mSuccess">
@@ -940,7 +877,7 @@ img{max-width:100%;}
             <span style="font-size:1.6rem;">✅</span>
             <div>
               <div style="font-family:var(--fs);font-weight:700;color:var(--green2);font-size:.94rem;">Vote Cast Successfully / मतदान सफलतापूर्वक दर्ज</div>
-              <div style="font-size:.72rem;color:var(--text2);margin-top:2px;">Save your receipt. Use the transaction hash to verify on Etherscan.</div>
+              <div style="font-size:.72rem;color:var(--text2);margin-top:2px;">Save your receipt. Use the TX hash to verify on Etherscan.</div>
             </div>
           </div>
           <div class="receipt-wrap">
@@ -965,45 +902,29 @@ img{max-width:100%;}
         <div style="font-family:var(--fd);font-size:.85rem;color:rgba(255,255,255,.67);margin-top:2px;">भारत निर्वाचन आयोग</div>
         <p>Nirvachan Sadan, Ashoka Road, New Delhi – 110 001<br>Maintained by NIC, Ministry of Electronics &amp; IT, Govt. of India.</p>
       </div>
-      <div class="foot-col">
-        <h4>Important Links</h4>
-        <a href="#">Voter Registration (NVSP)</a>
-        <a href="#">Check Voter Status</a>
-        <a href="#">Polling Station Locator</a>
-        <a href="#">ECI Annual Report</a>
-      </div>
-      <div class="foot-col">
-        <h4>Technical Info</h4>
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms of Use</a>
-        <a href="#">Accessibility Statement</a>
-        <a href="#">RTI Information</a>
-      </div>
-      <div class="foot-col">
-        <h4>Contact / संपर्क</h4>
-        <a href="#">Voter Helpline: 1950</a>
-        <a href="#">Tech: 1800-111-950</a>
-        <a href="#">complaints@eci.gov.in</a>
-        <a href="#">Grievance Portal</a>
-      </div>
+      <div class="foot-col"><h4>Important Links</h4><a href="#">Voter Registration (NVSP)</a><a href="#">Check Voter Status</a><a href="#">Polling Station Locator</a><a href="#">ECI Annual Report</a></div>
+      <div class="foot-col"><h4>Technical Info</h4><a href="#">Privacy Policy</a><a href="#">Terms of Use</a><a href="#">Accessibility</a><a href="#">RTI Information</a></div>
+      <div class="foot-col"><h4>Contact</h4><a href="#">Voter Helpline: 1950</a><a href="#">Tech: 1800-111-950</a><a href="#">complaints@eci.gov.in</a><a href="#">Grievance Portal</a></div>
     </div>
     <div class="foot-bottom">
-      <span>© 2025 Election Commission of India. All Rights Reserved. | Designed, Developed &amp; Hosted by NIC</span>
-      <span>Last Updated: <span id="lastUpd">—</span> &nbsp;|&nbsp; Visitors: 4,82,19,304</span>
+      <span>© 2025 Election Commission of India | Designed, Developed &amp; Hosted by NIC</span>
+      <span>Last Updated: <span id="lastUpd">—</span> | Visitors: 4,82,19,304</span>
     </div>
   </footer>
-</div><!-- /portalPage -->
+</div>
 
 
-<!-- ══════════════════════════════════════════
-     JAVASCRIPT — All functions global scope
-     ══════════════════════════════════════════ -->
+<!-- ═══════════════════════════════
+     ALL JAVASCRIPT — INLINE
+     (avoids any loading issues)
+     ═══════════════════════════════ -->
 <script>
 'use strict';
 
-/* ─── API ─── */
+/* ═══ API LAYER ═══════════════════════════════════════════════ */
 const API = {
   token: localStorage.getItem('evbs_token') || '',
+
   async call(method, url, body) {
     const opts = { method, headers: { 'Content-Type': 'application/json' } };
     if (this.token) opts.headers['Authorization'] = 'Bearer ' + this.token;
@@ -1013,50 +934,54 @@ const API = {
       const d = await r.json();
       return { ok: r.ok, status: r.status, data: d };
     } catch (e) {
-      return { ok: false, status: 0, data: { error: 'Network error. Please check your connection and that the server is running.' } };
+      console.error('API error:', e.message);
+      return { ok: false, status: 0, data: { error: 'Cannot connect to server. Make sure the server is running.' } };
     }
   },
-  get(u) { return this.call('GET', u); },
+  get(u)     { return this.call('GET', u); },
   post(u, b) { return this.call('POST', u, b); }
 };
 
-/* ─── STATE ─── */
-let USER = null;
+/* ═══ STATE ═══════════════════════════════════════════════════ */
+let USER          = null;
 let selectedCandId = null;
-let otpSent = false;
-let mpTxs = [];
-let nodeFail = new Array(8).fill(false);
-const NODES = [
-  { n: 'Mumbai', ms: 28 }, { n: 'Delhi', ms: 33 },
-  { n: 'Frankfurt', ms: 42 }, { n: 'Singapore', ms: 18 },
-  { n: 'Sydney', ms: 89 }, { n: 'London', ms: 67 },
-  { n: 'Tokyo', ms: 22 }, { n: 'New York', ms: 134 }
-];
-const BAR_CLS = ['bf1', 'bf2', 'bf3', 'bf4', 'bf5'];
+let otpSent       = false;
+let mpTxs         = [];
+let nodeFail      = new Array(8).fill(false);
 
-/* ─── INIT ─── */
+const NODES = [
+  {n:'Mumbai',ms:28},{n:'Delhi',ms:33},{n:'Frankfurt',ms:42},{n:'Singapore',ms:18},
+  {n:'Sydney',ms:89},{n:'London',ms:67},{n:'Tokyo',ms:22},{n:'New York',ms:134}
+];
+const BAR = ['bf1','bf2','bf3','bf4','bf5'];
+
+/* ═══ BOOT ════════════════════════════════════════════════════ */
 document.addEventListener('DOMContentLoaded', async () => {
   clockTick();
   setInterval(clockTick, 1000);
+
   if (API.token) {
     const r = await API.get('/api/auth/me');
     if (r.ok) { USER = r.data; showPortal(); }
-    else { API.token = ''; localStorage.removeItem('evbs_token'); showAuth(); }
+    else      { API.token = ''; localStorage.removeItem('evbs_token'); showAuth(); }
   } else {
     showAuth();
   }
 });
 
-/* ─── CLOCK ─── */
+/* ═══ CLOCK ═══════════════════════════════════════════════════ */
 function clockTick() {
   const now = new Date();
-  const s = now.toLocaleString('en-IN', { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit', timeZone: 'Asia/Kolkata' }) + ' IST';
-  const el = document.getElementById('clockEl'); if (el) el.textContent = s;
+  const s = now.toLocaleString('en-IN', {
+    weekday:'short', year:'numeric', month:'short', day:'numeric',
+    hour:'2-digit', minute:'2-digit', second:'2-digit', timeZone:'Asia/Kolkata'
+  }) + ' IST';
+  const ce = document.getElementById('clockEl');    if (ce) ce.textContent = s;
   const lu = document.getElementById('lastUpd');
-  if (lu) lu.textContent = now.toLocaleString('en-IN', { day: '2-digit', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit', timeZone: 'Asia/Kolkata' });
+  if (lu) lu.textContent = now.toLocaleString('en-IN', {day:'2-digit',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit',timeZone:'Asia/Kolkata'});
 }
 
-/* ─── PAGE SWITCH ─── */
+/* ═══ PAGE SWITCH ═════════════════════════════════════════════ */
 function showAuth() {
   document.getElementById('authPage').classList.add('active');
   document.getElementById('portalPage').classList.remove('active');
@@ -1068,38 +993,38 @@ function showPortal() {
   loadStats();
   buildSidebars();
   startSims();
-  loadBlockchainView();
+  loadChainView();
   if (USER.has_voted) document.getElementById('nb-vote').textContent = '✅ Already Voted';
 }
 
-/* ─── AUTH TABS — THE FIX ─── */
-function switchAuthTab(tab) {
-  // Update tab button states
+/* ═══ AUTH TAB SWITCH ═════════════════════════════════════════ */
+function switchTab(tab) {
+  // Update tab buttons
   document.getElementById('tabLogin').classList.toggle('active', tab === 'login');
   document.getElementById('tabReg').classList.toggle('active', tab === 'register');
-  document.getElementById('tabLogin').setAttribute('aria-selected', tab === 'login');
-  document.getElementById('tabReg').setAttribute('aria-selected', tab === 'register');
-
-  // Show/hide panels
+  // Show correct panel
   document.getElementById('loginPanel').classList.toggle('active', tab === 'login');
   document.getElementById('regPanel').classList.toggle('active', tab === 'register');
-
-  // Clear any alerts when switching
-  if (tab === 'login') document.getElementById('loginAlert').innerHTML = '';
+  // Clear alerts
+  if (tab === 'login')    document.getElementById('loginAlert').innerHTML = '';
   if (tab === 'register') document.getElementById('regAlert').innerHTML = '';
 }
 
-/* ─── LOGIN ─── */
+/* ═══ LOGIN ═══════════════════════════════════════════════════ */
 async function doLogin() {
   const epic = document.getElementById('lEpic').value.trim();
   const pass = document.getElementById('lPass').value;
-  const aEl = document.getElementById('loginAlert');
+  const aEl  = document.getElementById('loginAlert');
   aEl.innerHTML = '';
+
   if (!epic || !pass) return setAlert(aEl, 'err', 'Please enter your EPIC number and password.');
+
   const btn = document.getElementById('loginBtn');
   btn.disabled = true;
-  btn.innerHTML = '<span class="spin"></span> Authenticating...';
+  btn.innerHTML = '<span class="spin"></span> Signing in…';
+
   const r = await API.post('/api/auth/login', { epic, password: pass });
+
   if (r.ok) {
     API.token = r.data.token;
     localStorage.setItem('evbs_token', r.data.token);
@@ -1112,18 +1037,22 @@ async function doLogin() {
   }
 }
 
-// Allow Enter key in login form
-document.addEventListener('keydown', function(e) {
-  if (e.key === 'Enter' && document.getElementById('loginPanel').classList.contains('active')) {
-    const active = document.activeElement;
-    if (active && (active.id === 'lEpic' || active.id === 'lPass')) doLogin();
+// Allow pressing Enter to login
+document.addEventListener('keydown', e => {
+  if (e.key === 'Enter') {
+    const lp = document.getElementById('loginPanel');
+    if (lp && lp.classList.contains('active')) {
+      const f = document.activeElement;
+      if (f && (f.id === 'lEpic' || f.id === 'lPass')) doLogin();
+    }
   }
 });
 
-/* ─── REGISTER ─── */
+/* ═══ REGISTER ════════════════════════════════════════════════ */
 async function doRegister() {
   const aEl = document.getElementById('regAlert');
   aEl.innerHTML = '';
+
   const f = {
     name:         document.getElementById('rName').value.trim(),
     dob:          document.getElementById('rDob').value,
@@ -1137,22 +1066,27 @@ async function doRegister() {
     password:     document.getElementById('rPass').value,
     password2:    document.getElementById('rPass2').value,
   };
+
+  // Client-side validation
   if (!f.name || !f.dob || !f.gender || !f.aadhaar || !f.epic || !f.phone || !f.state || !f.constituency || !f.password)
-    return setAlert(aEl, 'err', 'Please fill all required fields marked with *.');
+    return setAlert(aEl, 'err', 'Please fill in all required fields (marked with *).');
   if (f.password !== f.password2)
     return setAlert(aEl, 'err', 'Passwords do not match. Please re-enter.');
   if (f.password.length < 8)
     return setAlert(aEl, 'err', 'Password must be at least 8 characters long.');
   if (!document.getElementById('rDecl').checked)
-    return setAlert(aEl, 'err', 'You must accept the declaration to proceed.');
+    return setAlert(aEl, 'err', 'Please tick the declaration checkbox to continue.');
 
   const btn = document.getElementById('regBtn');
   btn.disabled = true;
-  btn.innerHTML = '<span class="spin"></span> Registering...';
+  btn.innerHTML = '<span class="spin"></span> Registering…';
+
   const r = await API.post('/api/auth/register', f);
+
   if (r.ok) {
-    setAlert(aEl, 'ok', '✅ Registration successful! You can now log in with your EPIC number and password.');
-    setTimeout(() => switchAuthTab('login'), 2500);
+    setAlert(aEl, 'ok', '✅ ' + r.data.message);
+    // Auto-switch to login after 2.5 seconds
+    setTimeout(() => switchTab('login'), 2500);
   } else {
     setAlert(aEl, 'err', r.data.error || 'Registration failed. Please try again.');
   }
@@ -1160,44 +1094,42 @@ async function doRegister() {
   btn.textContent = 'Register as Voter / पंजीकरण करें';
 }
 
-/* ─── LOGOUT ─── */
+/* ═══ LOGOUT ══════════════════════════════════════════════════ */
 async function doLogout() {
   await API.post('/api/auth/logout');
   API.token = '';
   localStorage.removeItem('evbs_token');
   USER = null; selectedCandId = null; otpSent = false;
   showAuth();
-  switchAuthTab('login');
+  switchTab('login');
 }
 
-/* ─── SECTION NAV ─── */
-const SECTIONS = {
-  home:     { el: 's-home',     bc: 'Dashboard',         nb: 'nb-home' },
-  vote:     { el: 's-vote',     bc: 'Cast Vote',          nb: 'nb-vote' },
-  results:  { el: 's-results',  bc: 'Election Results',   nb: 'nb-results' },
-  chain:    { el: 's-chain',    bc: 'Blockchain Ledger',  nb: 'nb-chain' },
-  profile:  { el: 's-profile',  bc: 'My Profile',         nb: 'nb-profile' },
-  security: { el: 's-security', bc: 'Security Protocols', nb: 'nb-security' }
+/* ═══ SECTION NAVIGATION ══════════════════════════════════════ */
+const SECS = {
+  home:     {el:'s-home',    bc:'Dashboard',        nb:'nb-home'},
+  vote:     {el:'s-vote',    bc:'Cast Vote',         nb:'nb-vote'},
+  results:  {el:'s-results', bc:'Election Results',  nb:'nb-results'},
+  chain:    {el:'s-chain',   bc:'Blockchain Ledger', nb:'nb-chain'},
+  profile:  {el:'s-profile', bc:'My Profile',        nb:'nb-profile'},
+  security: {el:'s-security',bc:'Security',          nb:'nb-security'},
 };
-function gotoSection(name) {
-  Object.keys(SECTIONS).forEach(k => {
-    document.getElementById(SECTIONS[k].el).style.display = 'none';
-    const nb = document.getElementById(SECTIONS[k].nb);
-    if (nb) nb.classList.remove('active');
+
+function gotoSec(name) {
+  Object.values(SECS).forEach(s => {
+    document.getElementById(s.el).style.display = 'none';
+    const nb = document.getElementById(s.nb); if (nb) nb.classList.remove('on');
   });
-  const s = SECTIONS[name];
-  if (!s) return;
+  const s = SECS[name]; if (!s) return;
   document.getElementById(s.el).style.display = '';
-  const nb = document.getElementById(s.nb);
-  if (nb) nb.classList.add('active');
+  const nb = document.getElementById(s.nb); if (nb) nb.classList.add('on');
   document.getElementById('bcCur').textContent = s.bc;
   if (name === 'vote')    loadVotePage();
   if (name === 'results') loadResults();
-  if (name === 'chain')   loadBlockchainView();
+  if (name === 'chain')   loadChainView();
   if (name === 'profile') loadProfile();
 }
 
-/* ─── STATS ─── */
+/* ═══ STATS ═══════════════════════════════════════════════════ */
 async function loadStats() {
   const r = await API.get('/api/election/stats');
   if (!r.ok) return;
@@ -1206,211 +1138,236 @@ async function loadStats() {
 }
 setInterval(loadStats, 12000);
 
-/* ─── SIDEBAR ─── */
+/* ═══ SIDEBARS ════════════════════════════════════════════════ */
 function buildSidebars() {
-  ['sidebar-home', 'sidebar-vote'].forEach(cid => {
-    const el = document.getElementById(cid);
-    if (!el) return;
+  ['sidebar-home','sidebar-vote'].forEach(id => {
+    const el = document.getElementById(id); if (!el) return;
     el.innerHTML = `
-      <div class="sc"><div class="sc-hdr"><h3>📊 Live Vote Tally</h3></div><div class="sc-body" id="tally-${cid}">Loading...</div></div>
-      <div class="sc"><div class="sc-hdr"><h3>⏳ Mempool — Pending TXs</h3></div><div class="sc-body"><div class="mp-list" id="mp-${cid}"></div><div style="font-size:.62rem;color:var(--muted);margin-top:7px;" id="mpc-${cid}">— pending</div></div></div>
-      <div class="sc"><div class="sc-hdr"><h3>⛓️ Recent Blocks</h3></div><div class="sc-body"><div class="ledger-list" id="ll-${cid}"></div></div></div>
-      <div class="sc"><div class="sc-hdr"><h3>🌐 IPFS Storage Nodes</h3></div><div class="sc-body"><div class="node-grid" id="ng-${cid}"></div><div style="font-size:.61rem;color:var(--muted);margin-top:6px;">Failed nodes auto-reroute.</div></div></div>
-      <div class="sc"><div class="sc-hdr"><h3>🔗 Official Links</h3></div><div class="sc-body"><a href="https://eci.gov.in" target="_blank">ECI Official Website</a><a href="https://uidai.gov.in" target="_blank">UIDAI / Aadhaar Portal</a><a href="https://nvsp.in" target="_blank">NVSP Voter Registration</a><a href="https://nic.in" target="_blank">National Informatics Centre</a></div></div>
+      <div class="sc"><div class="sc-hdr"><h3>📊 Live Vote Tally</h3></div><div class="sc-body" id="tally-${id}">Loading…</div></div>
+      <div class="sc"><div class="sc-hdr"><h3>⏳ Mempool — Pending TXs</h3></div><div class="sc-body"><div class="mp-list" id="mp-${id}"></div><div style="font-size:.62rem;color:var(--muted);margin-top:7px;" id="mpc-${id}">—</div></div></div>
+      <div class="sc"><div class="sc-hdr"><h3>⛓️ Recent Blocks</h3></div><div class="sc-body"><div class="ledger-list" id="ll-${id}"></div></div></div>
+      <div class="sc"><div class="sc-hdr"><h3>🌐 IPFS Storage Nodes</h3></div><div class="sc-body"><div class="node-grid" id="ng-${id}"></div><div style="font-size:.61rem;color:var(--muted);margin-top:6px;">Failed nodes auto-reroute.</div></div></div>
+      <div class="sc"><div class="sc-hdr"><h3>🔗 Official Links</h3></div><div class="sc-body"><a href="https://eci.gov.in" target="_blank">ECI Official Website</a><a href="https://uidai.gov.in" target="_blank">UIDAI / Aadhaar Portal</a><a href="https://nvsp.in" target="_blank">NVSP Voter Registration</a></div></div>
     `;
-    buildNodeGrid(cid);
-    renderLedger(cid);
-    renderTally(cid);
+    buildNodes(id);
+    renderLedger(id);
+    renderTally(id);
   });
 }
 
 async function renderTally(cid) {
-  const el = document.getElementById('tally-' + cid); if (!el) return;
+  const el = document.getElementById('tally-'+cid); if (!el) return;
   const r = await API.get('/api/election/results');
-  if (!r.ok) { el.innerHTML = '<div style="font-size:.74rem;color:var(--muted);">Unable to load tally.</div>'; return; }
-  const overall = r.data.overall || [];
-  const total = r.data.grand_total || 1;
-  el.innerHTML = overall.map((c, i) => {
-    const pct = ((c.total / total) * 100).toFixed(1);
-    return `<div class="tally-row"><div class="tally-h"><span class="tally-name">${c.symbol || ''} ${c.name}</span><span class="tally-pct">${pct}%</span></div><div class="tally-bar"><div class="tally-fill ${BAR_CLS[i % 5]}" style="width:${pct}%"></div></div><div class="tally-v">${fmtN(c.total)} votes</div></div>`;
-  }).join('') + '<div style="font-size:.62rem;color:var(--muted);margin-top:7px;border-top:1px solid var(--border);padding-top:6px;">Live from blockchain tally.</div>';
+  if (!r.ok) { el.innerHTML='<div style="font-size:.74rem;color:var(--muted);">Unavailable</div>'; return; }
+  const overall = r.data.overall||[], total = r.data.grand_total||1;
+  el.innerHTML = overall.map((c,i)=>{
+    const p = ((c.total/total)*100).toFixed(1);
+    return `<div class="tally-row"><div class="tally-h"><span class="tally-name">${c.symbol||''} ${c.name}</span><span class="tally-pct">${p}%</span></div><div class="tally-bar"><div class="tally-fill ${BAR[i%5]}" style="width:${p}%"></div></div><div class="tally-v">${fmtN(c.total)} votes</div></div>`;
+  }).join('') + '<div style="font-size:.62rem;color:var(--muted);margin-top:7px;border-top:1px solid var(--border);padding-top:6px;">Live from blockchain.</div>';
 }
 
 async function renderLedger(cid) {
-  const el = document.getElementById('ll-' + cid); if (!el) return;
+  const el = document.getElementById('ll-'+cid); if (!el) return;
   const r = await API.get('/api/blockchain/blocks');
   if (!r.ok) return;
-  el.innerHTML = r.data.blocks.slice(0, 7).map(b =>
-    `<div class="li"><span class="li-b">Block #${fmtN(b.block_number)}</span><span class="li-h">${(b.block_hash || '').slice(0, 22)}...</span><span class="li-s">✓ Finalised</span></div>`
+  el.innerHTML = r.data.blocks.slice(0,7).map(b=>
+    `<div class="li"><span class="li-b">Block #${fmtN(b.block_number)}</span><span class="li-h">${(b.block_hash||'').slice(0,22)}…</span><span class="li-s">✓ Finalised</span></div>`
   ).join('');
 }
 
-function buildNodeGrid(cid) {
-  const g = document.getElementById('ng-' + cid); if (!g) return;
+function buildNodes(cid) {
+  const g = document.getElementById('ng-'+cid); if (!g) return;
   g.innerHTML = '';
-  NODES.forEach((n, i) => {
+  NODES.forEach((n,i)=>{
     const el = document.createElement('div');
-    el.className = 'nitem'; el.id = `nd-${cid}-${i}`;
-    el.onclick = () => alert(`Node: ${n.n}\nStatus: ${nodeFail[i] ? 'FAILED' : 'ACTIVE'}\nPing: ${nodeFail[i] ? 'TIMEOUT' : n.ms + 'ms'}\nShards: ${160 + i * 37}`);
+    el.className='nitem'; el.id=`nd-${cid}-${i}`;
+    el.onclick = ()=> alert(`Node: ${n.n}\nStatus: ${nodeFail[i]?'FAILED':'ACTIVE'}\nPing: ${nodeFail[i]?'TIMEOUT':n.ms+'ms'}`);
     g.appendChild(el);
   });
   refreshNodes(cid);
 }
 
 function refreshNodes(cid) {
-  NODES.forEach((n, i) => {
+  NODES.forEach((n,i)=>{
     const el = document.getElementById(`nd-${cid}-${i}`); if (!el) return;
     if (nodeFail[i]) {
-      el.className = 'nitem fail';
-      el.innerHTML = `<span class="nname">${n.n}</span><span class="nping dead">TIMEOUT</span>`;
+      el.className='nitem fail';
+      el.innerHTML=`<span class="nname">${n.n}</span><span class="nping dead">TIMEOUT</span>`;
     } else {
-      const ms = Math.max(6, n.ms + Math.round((Math.random() - .5) * 12));
-      el.className = 'nitem';
-      el.innerHTML = `<span class="nname">${n.n}</span><span class="nping ${ms > 100 ? 'slow' : ''}">${ms}ms</span>`;
+      const ms = Math.max(6, n.ms + Math.round((Math.random()-.5)*12));
+      el.className='nitem';
+      el.innerHTML=`<span class="nname">${n.n}</span><span class="nping ${ms>100?'slow':''}">${ms}ms</span>`;
     }
   });
 }
 
-/* ─── SIMULATIONS ─── */
+/* ═══ SIMULATIONS ═════════════════════════════════════════════ */
 function startSims() {
-  for (let i = 0; i < 7; i++) addMP({ age: Math.floor(Math.random() * 130) });
-  setInterval(() => {
-    mpTxs.forEach(t => t.age += 3);
-    if (Math.random() < .3) addMP({});
-    ['sidebar-home', 'sidebar-vote'].forEach(cid => renderMP(cid));
+  for (let i=0;i<7;i++) addMP({age:Math.floor(Math.random()*130)});
+
+  setInterval(()=>{
+    mpTxs.forEach(t=>t.age+=3);
+    if (Math.random()<.3) addMP({});
+    ['sidebar-home','sidebar-vote'].forEach(renderMP);
   }, 3000);
-  setInterval(() => { ['sidebar-home', 'sidebar-vote'].forEach(cid => refreshNodes(cid)); }, 2500);
-  setInterval(() => {
-    const active = NODES.map((_, i) => i).filter(i => !nodeFail[i]);
+
+  setInterval(()=>{
+    ['sidebar-home','sidebar-vote'].forEach(cid=>refreshNodes(cid));
+  }, 2500);
+
+  setInterval(()=>{
+    const active = NODES.map((_,i)=>i).filter(i=>!nodeFail[i]);
     if (!active.length) return;
-    const v = active[Math.floor(Math.random() * active.length)];
+    const v = active[Math.floor(Math.random()*active.length)];
     nodeFail[v] = true;
-    ['sidebar-home', 'sidebar-vote'].forEach(cid => { refreshNodes(cid); });
-    const peer = (v + 1) % 8;
-    ['sidebar-home', 'sidebar-vote'].forEach(cid => {
+    ['sidebar-home','sidebar-vote'].forEach(cid=>{ refreshNodes(cid); });
+    const peer = (v+1)%8;
+    ['sidebar-home','sidebar-vote'].forEach(cid=>{
       const el = document.getElementById(`nd-${cid}-${peer}`);
-      if (el) { el.classList.add('reroute'); setTimeout(() => el.classList.remove('reroute'), 3500); }
+      if (el){el.classList.add('reroute');setTimeout(()=>el.classList.remove('reroute'),3500);}
     });
-    setTimeout(() => { nodeFail[v] = false; ['sidebar-home', 'sidebar-vote'].forEach(cid => refreshNodes(cid)); }, 8000);
+    setTimeout(()=>{nodeFail[v]=false;['sidebar-home','sidebar-vote'].forEach(cid=>refreshNodes(cid));},8000);
   }, 15000);
-  setInterval(() => { ['sidebar-home', 'sidebar-vote'].forEach(cid => renderTally(cid)); }, 10000);
+
+  setInterval(()=>{
+    ['sidebar-home','sidebar-vote'].forEach(cid=>{renderTally(cid);renderLedger(cid);});
+  }, 10000);
 }
 
-function addMP(custom) {
-  const h = '0x' + Math.random().toString(16).slice(2, 14);
-  mpTxs.unshift({ hash: custom.hash || h, gas: Math.floor(10 + Math.random() * 48), age: custom.age || 0 });
-  if (mpTxs.length > 18) mpTxs.pop();
+function addMP(c) {
+  const h='0x'+Math.random().toString(16).slice(2,14);
+  mpTxs.unshift({hash:c.hash||h,gas:Math.floor(10+Math.random()*48),age:c.age||0});
+  if (mpTxs.length>18) mpTxs.pop();
 }
 
 function renderMP(cid) {
-  const el = document.getElementById('mp-' + cid); if (!el) return;
-  el.innerHTML = mpTxs.slice(0, 9).map(t =>
-    `<div class="mp-item"><span class="mp-hash">${t.hash.slice(0, 15)}...</span><span class="mp-gas">${t.gas}gwei</span><span class="mp-age">${t.age}s</span></div>`
+  const el = document.getElementById('mp-'+cid); if (!el) return;
+  el.innerHTML = mpTxs.slice(0,9).map(t=>
+    `<div class="mp-item"><span class="mp-hash">${t.hash.slice(0,15)}…</span><span class="mp-gas">${t.gas}gwei</span><span class="mp-age">${t.age}s</span></div>`
   ).join('');
-  const cnt = document.getElementById('mpc-' + cid);
+  const cnt = document.getElementById('mpc-'+cid);
   if (cnt) cnt.textContent = `${mpTxs.length} transactions pending`;
 }
 
-/* ─── BLOCKCHAIN VIEW ─── */
-async function loadBlockchainView() {
+/* ═══ BLOCKCHAIN VIEW ═════════════════════════════════════════ */
+async function loadChainView() {
   const row = document.getElementById('chainRow'); if (!row) return;
   const r = await API.get('/api/blockchain/blocks');
   if (!r.ok) return;
   const blocks = r.data.blocks.slice().reverse();
   row.innerHTML = '';
-  blocks.forEach((b, i) => {
+  blocks.forEach((b,i)=>{
     const blk = document.createElement('div');
-    blk.className = 'cblk' + (b.block_number === 0 ? ' genesis' : '');
-    blk.innerHTML = `<div class="cb-l">${b.block_number === 0 ? 'Genesis' : 'Block'}</div><div class="cb-n">#${fmtN(b.block_number)}</div><div class="cb-h">${(b.block_hash || '').slice(0, 20)}...</div><div class="cb-v">${b.tx_hash ? '1 vote · ✓' : b.block_number === 0 ? 'Chain Origin' : ''}</div>`;
+    blk.className = 'cblk'+(b.block_number===0?' genesis':'');
+    blk.innerHTML = `<div class="cb-l">${b.block_number===0?'Genesis':'Block'}</div><div class="cb-n">#${fmtN(b.block_number)}</div><div class="cb-h">${(b.block_hash||'').slice(0,20)}…</div><div class="cb-v">${b.tx_hash?'1 vote · ✓':b.block_number===0?'Chain Origin':''}</div>`;
     row.appendChild(blk);
-    if (i < blocks.length - 1) { const arr = document.createElement('div'); arr.className = 'chain-arr'; arr.textContent = '→'; row.appendChild(arr); }
+    if (i<blocks.length-1){const a=document.createElement('div');a.className='chain-arr';a.textContent='→';row.appendChild(a);}
   });
-  const arr2 = document.createElement('div'); arr2.className = 'chain-arr'; arr2.textContent = '→'; row.appendChild(arr2);
-  const pend = document.createElement('div'); pend.className = 'cblk pending';
-  const nxt = blocks.length ? blocks[blocks.length - 1].block_number + 1 : 1;
-  pend.innerHTML = `<div class="cb-l">Next</div><div class="cb-n">#${fmtN(nxt)}</div><div class="cb-h">Mining...</div><div class="cb-v" style="color:var(--saffron)">⏳ Pending</div>`;
+  const a2=document.createElement('div');a2.className='chain-arr';a2.textContent='→';row.appendChild(a2);
+  const pend=document.createElement('div');pend.className='cblk pending';
+  const nxt=blocks.length?blocks[blocks.length-1].block_number+1:1;
+  pend.innerHTML=`<div class="cb-l">Next Block</div><div class="cb-n">#${fmtN(nxt)}</div><div class="cb-h">Mining…</div><div class="cb-v" style="color:var(--saffron)">⏳ Pending</div>`;
   row.appendChild(pend);
   row.parentElement.scrollLeft = row.scrollWidth;
 }
 
-/* ─── RESULTS ─── */
+/* ═══ RESULTS ═════════════════════════════════════════════════ */
 async function loadResults() {
   const r = await API.get('/api/election/results');
   if (!r.ok) return;
-  const { by_constituency, overall, grand_total } = r.data;
-  const tot = grand_total || 1;
+  const {by_constituency, overall, grand_total} = r.data;
+  const tot = grand_total||1;
+
+  // Overall
   const ov = document.getElementById('overallDiv');
   if (ov && overall) {
-    ov.innerHTML = overall.map((c, i) => {
-      const pct = ((c.total / tot) * 100).toFixed(1);
-      return `<div class="rrow"><div class="rr-h"><span class="rr-name">${c.symbol || ''} ${c.name}${i === 0 ? ' <span class="winner-tag">🏆 Leading</span>' : ''}</span><span class="rr-pct">${pct}%</span></div><div class="bar-bg"><div class="bar-fill ${BAR_CLS[i % 5]}" style="width:${pct}%"></div></div><div class="rr-votes">${fmtN(c.total)} total votes</div></div>`;
-    }).join('') + `<div style="font-size:.67rem;color:var(--muted);margin-top:10px;border-top:1px solid var(--border);padding-top:8px;">Grand Total: ${fmtN(grand_total)} votes.</div>`;
+    ov.innerHTML = overall.map((c,i)=>{
+      const p=((c.total/tot)*100).toFixed(1);
+      return `<div class="rrow"><div class="rr-h"><span class="rr-name">${c.symbol||''} ${c.name}${i===0?' <span class="winner-tag">🏆 Leading</span>':''}</span><span class="rr-pct">${p}%</span></div><div class="bar-bg"><div class="bar-fill ${BAR[i%5]}" style="width:${p}%"></div></div><div class="rr-votes">${fmtN(c.total)} votes</div></div>`;
+    }).join('') + `<div style="font-size:.67rem;color:var(--muted);margin-top:10px;border-top:1px solid var(--border);padding-top:8px;">Grand Total: ${fmtN(grand_total)} votes</div>`;
   }
+
+  // Per constituency
   const grid = document.getElementById('resultsGrid');
   if (grid && by_constituency) {
-    grid.innerHTML = Object.entries(by_constituency).map(([con, data]) => {
-      const ctot = data.total || 1;
-      return `<div class="rc"><div class="rc-hdr">${con}</div><div class="rc-body">${data.candidates.map((c, i) => {
-        const pct = ((c.vote_count / ctot) * 100).toFixed(1);
-        return `<div class="rrow"><div class="rr-h"><span class="rr-name">${c.symbol} ${c.name}</span><span class="rr-pct">${pct}%</span></div><div class="bar-bg"><div class="bar-fill ${BAR_CLS[i % 5]}" style="width:${pct}%"></div></div><div class="rr-votes">${fmtN(c.vote_count)} votes</div></div>`;
-      }).join('')}<div style="font-size:.62rem;color:var(--muted);margin-top:7px;border-top:1px solid var(--border);padding-top:5px;">Total: ${fmtN(ctot)}</div></div></div>`;
+    grid.innerHTML = Object.entries(by_constituency).map(([con,data])=>{
+      const ct=data.total||1;
+      return `<div class="rc"><div class="rc-hdr">${con}</div><div class="rc-body">${
+        data.candidates.map((c,i)=>{
+          const p=((c.vote_count/ct)*100).toFixed(1);
+          return `<div class="rrow"><div class="rr-h"><span class="rr-name">${c.symbol} ${c.name}</span><span class="rr-pct">${p}%</span></div><div class="bar-bg"><div class="bar-fill ${BAR[i%5]}" style="width:${p}%"></div></div><div class="rr-votes">${fmtN(c.vote_count)} votes</div></div>`;
+        }).join('')
+      }<div style="font-size:.62rem;color:var(--muted);margin-top:7px;border-top:1px solid var(--border);padding-top:5px;">Total: ${fmtN(ct)}</div></div></div>`;
     }).join('');
   }
 }
 
-/* ─── PROFILE ─── */
+/* ═══ PROFILE ═════════════════════════════════════════════════ */
 async function loadProfile() {
   const pb = document.getElementById('profileBody');
   const ab = document.getElementById('auditBody');
   if (!pb) return;
+
   const mr = await API.get('/api/auth/me');
   if (mr.ok) USER = mr.data;
   const u = USER;
+
   const banner = u.has_voted
-    ? `<div class="voted-banner"><span style="font-size:1.5rem;">✅</span><div><strong style="font-family:var(--fs);color:var(--green2);">You have voted in this election.</strong><br><span style="font-size:.75rem;color:var(--text2);">Voted at: ${u.voted_at || '—'} UTC</span></div></div>`
+    ? `<div class="voted-banner"><span style="font-size:1.5rem;">✅</span><div><strong style="font-family:var(--fs);color:var(--green2);">You have voted in this election.</strong><br><span style="font-size:.75rem;color:var(--text2);">Voted at: ${u.voted_at||'—'} UTC</span></div></div>`
     : `<div class="not-voted-banner"><span style="font-size:1.5rem;">⚠️</span><div><strong style="font-family:var(--fs);color:var(--saf2);">You have not yet voted.</strong><br><span style="font-size:.75rem;color:var(--text2);">Please cast your vote before the election closes.</span></div></div>`;
-  pb.innerHTML = `${banner}<div style="background:var(--off);border:1px solid var(--border);padding:15px;margin-bottom:14px;"><div class="profile-grid">
-    <div><span class="pi-l">Full Name</span><span class="pi-v">${u.name}</span></div>
-    <div><span class="pi-l">EPIC Number</span><span class="pi-v" style="font-family:monospace;">${u.epic}</span></div>
-    <div><span class="pi-l">Date of Birth</span><span class="pi-v">${u.dob}</span></div>
-    <div><span class="pi-l">Gender</span><span class="pi-v">${u.gender || '—'}</span></div>
-    <div><span class="pi-l">Mobile</span><span class="pi-v">${u.phone}</span></div>
-    <div><span class="pi-l">Email</span><span class="pi-v">${u.email || '—'}</span></div>
-    <div><span class="pi-l">State</span><span class="pi-v">${u.state}</span></div>
-    <div><span class="pi-l">Constituency</span><span class="pi-v">${u.constituency}</span></div>
-    <div><span class="pi-l">Registered On</span><span class="pi-v">${(u.created_at || '').slice(0, 10)}</span></div>
-    <div><span class="pi-l">Voting Status</span><span class="pi-v" style="color:${u.has_voted ? 'var(--green2)' : 'var(--saf2)'};">${u.has_voted ? '✅ Voted' : '⏳ Not Voted'}</span></div>
-  </div></div>`;
+
+  pb.innerHTML = `${banner}
+    <div style="background:var(--off);border:1px solid var(--border);padding:15px;margin-bottom:14px;">
+      <div class="profile-grid">
+        <div><span class="pi-l">Full Name</span><span class="pi-v">${u.name}</span></div>
+        <div><span class="pi-l">EPIC Number</span><span class="pi-v" style="font-family:monospace;">${u.epic}</span></div>
+        <div><span class="pi-l">Date of Birth</span><span class="pi-v">${u.dob}</span></div>
+        <div><span class="pi-l">Gender</span><span class="pi-v">${u.gender||'—'}</span></div>
+        <div><span class="pi-l">Mobile</span><span class="pi-v">${u.phone}</span></div>
+        <div><span class="pi-l">Email</span><span class="pi-v">${u.email||'—'}</span></div>
+        <div><span class="pi-l">State</span><span class="pi-v">${u.state}</span></div>
+        <div><span class="pi-l">Constituency</span><span class="pi-v">${u.constituency}</span></div>
+        <div><span class="pi-l">Registered On</span><span class="pi-v">${(u.created_at||'').slice(0,10)}</span></div>
+        <div><span class="pi-l">Voting Status</span><span class="pi-v" style="color:${u.has_voted?'var(--green2)':'var(--saf2)'};">${u.has_voted?'✅ Voted':'⏳ Not Voted'}</span></div>
+      </div>
+    </div>`;
+
   if (u.has_voted) {
     const rr = await API.get('/api/voter/receipt');
     if (rr.ok && rr.data.has_voted && rr.data.block) {
       const b = rr.data.block;
-      pb.innerHTML += `<div class="receipt-wrap"><div class="receipt-hdr"><span>🧾</span><h3>Blockchain Vote Receipt</h3></div><table class="receipt-tbl">
-        <tr><td>Transaction Hash</td><td>${b.tx_hash || '—'}</td></tr>
-        <tr><td>Block Number</td><td>#${fmtN(b.block_number)}</td></tr>
-        <tr><td>Block Hash</td><td>0x${b.block_hash || '—'}</td></tr>
-        <tr><td>IPFS CID</td><td>${b.ipfs_cid || '—'}</td></tr>
-        <tr><td>Nullifier</td><td>${rr.data.nullifier || '—'}</td></tr>
-        <tr><td>Voted At (UTC)</td><td>${rr.data.voted_at || '—'}</td></tr>
-        <tr><td>Status</td><td><strong style="color:var(--green2);">✅ Confirmed · Immutable</strong></td></tr>
-      </table></div>`;
+      pb.innerHTML += `<div class="receipt-wrap">
+        <div class="receipt-hdr"><span>🧾</span><h3>Blockchain Vote Receipt</h3></div>
+        <table class="receipt-tbl">
+          <tr><td>Transaction Hash</td><td>${b.tx_hash||'—'}</td></tr>
+          <tr><td>Block Number</td><td>#${fmtN(b.block_number)}</td></tr>
+          <tr><td>Block Hash</td><td>0x${b.block_hash||'—'}</td></tr>
+          <tr><td>IPFS CID</td><td>${b.ipfs_cid||'—'}</td></tr>
+          <tr><td>Nullifier</td><td>${rr.data.nullifier||'—'}</td></tr>
+          <tr><td>Voted At (UTC)</td><td>${rr.data.voted_at||'—'}</td></tr>
+          <tr><td>Status</td><td><strong style="color:var(--green2);">✅ Confirmed · Immutable</strong></td></tr>
+        </table></div>`;
     }
   }
+
+  // Audit log
   if (ab) {
     const ar = await API.get('/api/admin/audit');
     ab.innerHTML = ar.ok && ar.data.logs.length
-      ? `<table class="sec-tbl"><tr><th>Action</th><th>Detail</th><th>IP</th><th>Timestamp (UTC)</th></tr>${ar.data.logs.map(l => `<tr><td><strong>${l.action}</strong></td><td>${l.detail || '—'}</td><td style="font-family:monospace;font-size:.67rem;">${l.ip}</td><td style="font-size:.7rem;">${l.created_at}</td></tr>`).join('')}</table>`
-      : '<div style="font-size:.78rem;color:var(--muted);">No activity log entries found.</div>';
+      ? `<table class="sec-tbl"><tr><th>Action</th><th>Detail</th><th>IP</th><th>Time (UTC)</th></tr>${ar.data.logs.map(l=>`<tr><td><strong>${l.action}</strong></td><td>${l.detail||'—'}</td><td style="font-family:monospace;font-size:.67rem;">${l.ip}</td><td style="font-size:.7rem;">${l.created_at}</td></tr>`).join('')}</table>`
+      : '<div style="font-size:.78rem;color:var(--muted);">No activity logged yet.</div>';
   }
 }
 
-/* ─── VOTE PAGE ─── */
+/* ═══ VOTE PAGE ════════════════════════════════════════════════ */
 async function loadVotePage() {
   if (!USER) return;
   const r = await API.get('/api/auth/me');
   if (r.ok) USER = r.data;
+
   setText('vState', USER.state);
-  setText('vCons', USER.constituency);
+  setText('vCons',  USER.constituency);
+
   if (USER.has_voted) {
     document.getElementById('alreadyVotedBanner').style.display = 'flex';
     document.getElementById('voteFormArea').style.display = 'none';
@@ -1418,26 +1375,27 @@ async function loadVotePage() {
   }
   document.getElementById('alreadyVotedBanner').style.display = 'none';
   document.getElementById('voteFormArea').style.display = 'block';
+
   const cr = await API.get('/api/election/candidates');
   if (!cr.ok) {
     document.getElementById('candList').innerHTML = `<div class="alert al-err"><span>❌</span><span>${cr.data.error}</span></div>`;
     return;
   }
   document.getElementById('candList').innerHTML = cr.data.candidates.map(c =>
-    `<label class="cand-item${c.name === 'NOTA' ? ' nota-item' : ''}" onclick="selCand(this,${c.id})">
+    `<label class="cand-item${c.name==='NOTA'?' nota-item':''}" onclick="selCand(this,${c.id})">
       <input type="radio" name="candidate" value="${c.id}"/>
       <div class="cand-sym">${c.symbol}</div>
       <div class="cand-info">
         <div class="cand-name">${c.name}</div>
         <div class="cand-party">${c.party} · ${c.party_hi}</div>
-        <div class="cand-meta">Serial No. ${c.serial_no} · ECI Registered${c.age ? ' · Age: ' + c.age : ''}</div>
+        <div class="cand-meta">Serial No. ${c.serial_no} · ECI Registered${c.age?' · Age: '+c.age:''}</div>
       </div>
     </label>`
   ).join('');
 }
 
 function selCand(el, id) {
-  document.querySelectorAll('.cand-item').forEach(c => c.classList.remove('sel'));
+  document.querySelectorAll('.cand-item').forEach(c=>c.classList.remove('sel'));
   el.classList.add('sel');
   el.querySelector('input[type=radio]').checked = true;
   selectedCandId = id;
@@ -1446,17 +1404,21 @@ function selCand(el, id) {
 
 async function sendOTP() {
   const btn = document.getElementById('otpBtn');
-  btn.disabled = true; btn.textContent = 'Sending...';
-  const uid = document.getElementById('vAadhaar').value.replace(/\s/g, '');
-  if (uid.length === 12) showNullifierPreview(uid);
+  btn.disabled = true; btn.textContent = 'Sending…';
+
+  const uid = document.getElementById('vAadhaar').value.replace(/\s/g,'');
+  if (uid.length === 12) showNullPreview(uid);
+
   const r = await API.post('/api/otp/send');
   if (r.ok) {
     otpSent = true;
-    const devNote = r.data._dev_otp ? ` (DEV OTP: ${r.data._dev_otp})` : '';
+    const devNote = r.data._dev_otp ? ` (OTP: ${r.data._dev_otp})` : '';
     document.getElementById('otpHint').textContent = `✅ ${r.data.message}${devNote}`;
+    document.getElementById('otpHint').style.color = 'var(--green2)';
     btn.textContent = 'Resend OTP';
   } else {
-    document.getElementById('otpHint').textContent = '❌ ' + (r.data.error || 'Failed to send OTP.');
+    document.getElementById('otpHint').textContent = '❌ ' + (r.data.error||'Failed to send OTP.');
+    document.getElementById('otpHint').style.color = 'var(--red)';
     btn.textContent = 'Send OTP';
   }
   btn.disabled = false;
@@ -1468,57 +1430,63 @@ function onOtpInput() {
   checkReady();
 }
 
-function showNullifierPreview(uid) {
-  const h1 = simHash(uid + 'eci-salt-2025');
-  const h2 = simHash(h1 + 'poseidon-key');
-  const nb = document.getElementById('nullBox');
+function showNullPreview(uid) {
+  const h1 = simHash(uid+'eci-2025');
+  const h2 = simHash(h1+'poseidon');
   document.getElementById('nullVal').innerHTML =
-    `<span style="color:var(--muted);font-size:.62rem">SHA-3 Commitment: </span>0x${h1.slice(0,24)}...<br><span style="color:var(--navy);font-size:.62rem">Voter Nullifier:   </span><strong>0x${h2.slice(0,32)}...</strong>`;
-  nb.classList.add('show');
+    `<span style="color:var(--muted);font-size:.62rem">SHA-3: </span>0x${h1.slice(0,24)}…<br>`+
+    `<span style="color:var(--navy);font-size:.62rem">Nullifier: </span><strong>0x${h2.slice(0,32)}…</strong>`;
+  document.getElementById('nullBox').classList.add('show');
 }
 
 function simHash(s) {
   let h = 0x811c9dc5;
-  for (let i = 0; i < s.length; i++) h = Math.imul(h ^ s.charCodeAt(i), 0x01000193) >>> 0;
+  for (let i=0;i<s.length;i++) h = Math.imul(h^s.charCodeAt(i),0x01000193)>>>0;
   return h.toString(16).padStart(8,'0').repeat(8);
 }
 
 function checkReady() {
-  const otp = document.getElementById('vOtp').value;
+  const otp  = document.getElementById('vOtp').value;
   const decl = document.getElementById('vDecl').checked;
-  document.getElementById('submitVoteBtn').disabled = !(otp.length === 6 && otpSent && decl && !!selectedCandId);
+  document.getElementById('submitVoteBtn').disabled = !(otp.length===6 && otpSent && decl && !!selectedCandId);
 }
 
+/* ═══ SUBMIT VOTE ══════════════════════════════════════════════ */
 async function submitVote() {
   const otp = document.getElementById('vOtp').value;
   if (!otp || !selectedCandId) return;
+
   document.getElementById('voteModal').classList.add('show');
   document.getElementById('submitVoteBtn').disabled = true;
+
   const stages = [
-    { id: 'ms1', pct: 20, detail: 'Connecting to UIDAI Aadhaar API...' },
-    { id: 'ms2', pct: 40, detail: 'SHA-3 commitment → Poseidon nullifier derived' },
-    { id: 'ms3', pct: 62, detail: 'Groth16 prover: C(x,w)=1 ✓ — π generated' },
-    { id: 'ms4', pct: 80, detail: 'Metadata sharded to 4/8 IPFS nodes' },
-    { id: 'ms5', pct: 95, detail: 'Submitting to Ethereum mempool...' }
+    {id:'ms1',pct:20,detail:'Connecting to UIDAI Aadhaar API…'},
+    {id:'ms2',pct:40,detail:'SHA-3 commitment → Poseidon nullifier derived'},
+    {id:'ms3',pct:62,detail:'Groth16 prover: C(x,w)=1 ✓ — π generated'},
+    {id:'ms4',pct:80,detail:'Metadata sharded to 4/8 IPFS nodes'},
+    {id:'ms5',pct:95,detail:'Submitting to Ethereum mempool…'},
   ];
+
   let i = 0;
   const run = async () => {
     if (i > 0) {
-      const prev = document.getElementById(stages[i - 1].id);
+      const prev = document.getElementById(stages[i-1].id);
       prev.classList.remove('active'); prev.classList.add('done');
       prev.querySelector('.sicon').textContent = '✓';
     }
     if (i >= stages.length) {
-      setText('mprogl', 'Submitting transaction...');
-      const r = await API.post('/api/vote/cast', { candidate_id: selectedCandId, otp });
+      setText('mprogl','Submitting to blockchain…');
+      const r = await API.post('/api/vote/cast', {candidate_id: selectedCandId, otp});
       document.getElementById('mprog').style.width = '100%';
+
       if (r.ok) {
         const rec = r.data.receipt;
-        setText('mprogl', '✅ Vote recorded on the Ethereum blockchain.');
+        setText('mprogl','✅ Vote recorded on the Ethereum blockchain.');
         USER.has_voted = true;
-        addMP({ hash: rec.tx_hash, gas: 21, age: 0 });
-        ['sidebar-home', 'sidebar-vote'].forEach(cid => { renderMP(cid); renderTally(cid); renderLedger(cid); });
-        loadBlockchainView();
+        addMP({hash:rec.tx_hash,gas:21,age:0});
+        ['sidebar-home','sidebar-vote'].forEach(cid=>{renderMP(cid);renderTally(cid);renderLedger(cid);});
+        loadChainView();
+
         document.getElementById('receiptTbl').innerHTML = `
           <tr><td>Transaction Hash</td><td>${rec.tx_hash}</td></tr>
           <tr><td>Block Number</td><td>#${fmtN(rec.block_number)}</td></tr>
@@ -1527,26 +1495,26 @@ async function submitVote() {
           <tr><td>Candidate</td><td>${rec.candidate.symbol} ${rec.candidate.name} — ${rec.candidate.party}</td></tr>
           <tr><td>Constituency</td><td>${rec.constituency}</td></tr>
           <tr><td>Nullifier</td><td>${rec.nullifier}</td></tr>
-          <tr><td>Timestamp (UTC)</td><td>${new Date(rec.timestamp).toUTCString()}</td></tr>
+          <tr><td>Timestamp</td><td>${new Date(rec.timestamp).toUTCString()}</td></tr>
           <tr><td>Status</td><td><strong style="color:var(--green2);">✅ Confirmed · Immutable</strong></td></tr>`;
         document.getElementById('mSuccess').classList.add('show');
-        setText('nb-vote', '✅ Already Voted');
+        setText('nb-vote','✅ Already Voted');
       } else {
         document.getElementById('mprogl').style.color = 'var(--red)';
-        setText('mprogl', '❌ Error: ' + (r.data.error || 'Vote failed.'));
+        setText('mprogl','❌ Error: '+(r.data.error||'Vote failed. Please try again.'));
         document.getElementById('submitVoteBtn').disabled = false;
       }
       document.getElementById('mCloseBtn').style.display = 'block';
       return;
     }
-    const st = stages[i];
+    const st  = stages[i];
     const row = document.getElementById(st.id);
     row.classList.add('active'); row.querySelector('.sicon').textContent = '⟳';
-    document.getElementById(st.id + 'd').textContent = st.detail;
-    document.getElementById('mprog').style.width = st.pct + '%';
+    document.getElementById(st.id+'d').textContent = st.detail;
+    document.getElementById('mprog').style.width = st.pct+'%';
     setText('mprogl', st.detail);
     i++;
-    setTimeout(run, 850 + Math.random() * 500);
+    setTimeout(run, 850 + Math.random()*500);
   };
   run();
 }
@@ -1559,17 +1527,17 @@ function closeVoteModal() {
   }
 }
 
-/* ─── UTILITIES ─── */
+/* ═══ UTILS ═══════════════════════════════════════════════════ */
 function fmtAadh(el) {
-  let v = el.value.replace(/\D/g, '').slice(0, 12);
-  el.value = [v.slice(0, 4), v.slice(4, 8), v.slice(8, 12)].filter(p => p).join(' ');
+  let v = el.value.replace(/\D/g,'').slice(0,12);
+  el.value = [v.slice(0,4),v.slice(4,8),v.slice(8,12)].filter(p=>p).join(' ');
 }
-function fmtN(n) { return Number(n || 0).toLocaleString('en-IN'); }
-function setText(id, val) { const el = document.getElementById(id); if (el) el.textContent = val; }
-function setAlert(el, type, msg) {
-  const icons = { err: '❌', ok: '✅', info: 'ℹ️', warn: '⚠️' };
-  const cls = { err: 'al-err', ok: 'al-ok', info: 'al-info', warn: 'al-warn' };
-  el.innerHTML = `<div class="alert ${cls[type] || 'al-info'}"><span>${icons[type] || 'ℹ️'}</span><span>${msg}</span></div>`;
+function fmtN(n)  { return Number(n||0).toLocaleString('en-IN'); }
+function setText(id,val) { const e=document.getElementById(id); if(e) e.textContent=val; }
+function setAlert(el,type,msg) {
+  const icons={err:'❌',ok:'✅',info:'ℹ️',warn:'⚠️'};
+  const cls={err:'al-err',ok:'al-ok',info:'al-info',warn:'al-warn'};
+  el.innerHTML=`<div class="alert ${cls[type]||'al-info'}"><span>${icons[type]||'ℹ️'}</span><span>${msg}</span></div>`;
 }
 </script>
 </body>
