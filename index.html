@@ -1540,5 +1540,60 @@ function setAlert(el,type,msg) {
   el.innerHTML=`<div class="alert ${cls[type]||'al-info'}"><span>${icons[type]||'ℹ️'}</span><span>${msg}</span></div>`;
 }
 </script>
+<script>
+function switchTab(t) {
+  document.querySelectorAll('.auth-tab, .auth-panel').forEach(e => e.classList.remove('active'));
+  document.getElementById(t === 'login' ? 'tabLogin' : 'tabReg').classList.add('active');
+  document.getElementById(t === 'login' ? 'loginPanel' : 'regPanel').classList.add('active');
+}
+
+function fmtAadh(el) {
+  let v = el.value.replace(/\D/g, '').substring(0, 12);
+  el.value = v.replace(/(\d{4})(?=\d)/g, '$1 ');
+}
+
+async function doRegister() {
+  const body = {
+    name: document.getElementById('rName').value,
+    dob: document.getElementById('rDob').value,
+    gender: document.getElementById('rGender').value,
+    aadhaar: document.getElementById('rAadhaar').value,
+    epic: document.getElementById('rEpic').value,
+    phone: document.getElementById('rPhone').value,
+    state: document.getElementById('rState').value,
+    constituency: document.getElementById('rCons').value,
+    password: document.getElementById('rPass').value
+  };
+
+  const res = await fetch('/api/auth/register', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(body)
+  });
+  const data = await res.json();
+  const alert = document.getElementById('regAlert');
+  alert.innerHTML = `<div class="alert ${data.success ? 'al-ok' : 'al-err'}">${data.success ? '✅ Success!' : '❌ ' + data.error}</div>`;
+  if (data.success) setTimeout(() => switchTab('login'), 1500);
+}
+
+async function doLogin() {
+  const epic = document.getElementById('lEpic').value;
+  const password = document.getElementById('lPass').value;
+
+  const res = await fetch('/api/auth/login', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ epic, password })
+  });
+  const data = await res.json();
+  const alert = document.getElementById('loginAlert');
+  if (data.success) {
+    alert.innerHTML = '<div class="alert al-ok">✅ Authorized. Entering Portal...</div>';
+    // Logic to switch to Main Voting Page
+  } else {
+    alert.innerHTML = `<div class="alert al-err">❌ ${data.error}</div>`;
+  }
+}
+</script>
 </body>
 </html>
